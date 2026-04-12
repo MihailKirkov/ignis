@@ -1,0 +1,150 @@
+{
+  "nav": {
+    "services": "Services",
+    "work": "Work",
+    "process": "Process",
+    "pricing": "Pricing",
+    "contact": "Contact",
+    "startProject": "Start a Project"
+  },
+  "hero": {
+    "badge": "Web Development Studio",
+    "headline1": "We Build",
+    "headline2": "Digital Fire",
+    "subheadline": "Ignis crafts high-performance websites and web apps that ignite brands and accelerate growth.",
+    "ctaPrimary": "View Our Work",
+    "ctaSecondary": "Start a Project",
+    "scrollText": "Scroll to explore",
+    "stat1Value": "50+",
+    "stat1Label": "Projects Delivered",
+    "stat2Value": "98%",
+    "stat2Label": "Client Satisfaction",
+    "stat3Value": "5x",
+    "stat3Label": "Avg. Traffic Growth"
+  },
+  "services": {
+    "badge": "What We Build",
+    "heading": "Three Services,\nUnlimited Potential",
+    "subheading": "From fast landing pages to complex web applications — built to perform, designed to convert.",
+    "cta": "Start a Project",
+    "landing": {
+      "title": "Landing Pages",
+      "description": "High-converting, blazing-fast landing pages designed to turn visitors into customers.",
+      "feature1": "Conversion-optimized layout",
+      "feature2": "Sub-2s load time",
+      "feature3": "A/B testing ready",
+      "feature4": "Analytics integrated",
+      "cta": "Get a Landing Page"
+    },
+    "business": {
+      "title": "Business Websites",
+      "description": "Professional multi-page websites that establish authority and drive business growth.",
+      "feature1": "Custom CMS integration",
+      "feature2": "SEO architecture",
+      "feature3": "Multi-language support",
+      "feature4": "Performance-first build",
+      "cta": "Get a Business Site"
+    },
+    "webapp": {
+      "title": "Web Applications",
+      "description": "Full-stack web applications built for scale — from SaaS to internal tools.",
+      "feature1": "Scalable architecture",
+      "feature2": "Authentication & Auth",
+      "feature3": "Real-time features",
+      "feature4": "API integration",
+      "cta": "Build My App"
+    }
+  },
+  "work": {
+    "badge": "Our Work",
+    "heading": "Projects That\nIgnite Results",
+    "subheading": "A selection of projects that showcase our approach — precise strategy, modern engineering, and results that compound.",
+    "filterAll": "All Projects",
+    "filterLanding": "Landing Pages",
+    "filterBusiness": "Business Websites",
+    "filterApp": "Web Apps",
+    "viewProject": "View Project"
+  },
+  "process": {
+    "badge": "How We Work",
+    "heading": "From Spark\nto Launch",
+    "subheading": "A clear, collaborative process that keeps you in control at every stage.",
+    "step1Title": "Discovery",
+    "step1Desc": "We dive deep into your goals, audience, and competition to define a winning strategy.",
+    "step2Title": "Design",
+    "step2Desc": "High-fidelity wireframes and pixel-perfect designs crafted with your brand identity.",
+    "step3Title": "Development",
+    "step3Desc": "Clean, performant code built with modern technologies and best practices.",
+    "step4Title": "Launch",
+    "step4Desc": "Rigorous testing, deployment, and ongoing support to ensure your success."
+  },
+  "pricing": {
+    "badge": "Investment",
+    "heading": "Transparent\nPricing",
+    "subheading": "No hidden fees. No surprises. Just exceptional work at a fair price.",
+    "mostPopular": "Most Popular",
+    "from": "From",
+    "starter": {
+      "name": "Starter",
+      "price": "€349",
+      "description": "Perfect for individuals and small businesses needing a strong online presence.",
+      "feature1": "Single-page landing site",
+      "feature2": "Mobile responsive",
+      "feature3": "Contact form",
+      "feature4": "Basic SEO setup",
+      "feature5": "2 revision rounds",
+      "cta": "Get Started"
+    },
+    "growth": {
+      "name": "Growth",
+      "price": "€997",
+      "description": "For growing businesses that need a comprehensive digital presence.",
+      "feature1": "Up to 8 pages",
+      "feature2": "Custom CMS",
+      "feature3": "Advanced SEO",
+      "feature4": "Analytics setup",
+      "feature5": "4 revision rounds",
+      "feature6": "3-month support",
+      "cta": "Most Popular"
+    },
+    "scale": {
+      "name": "Ignite",
+      "price": "Custom",
+      "description": "Full-featured web applications built for performance and growth.",
+      "feature1": "Full-stack web app",
+      "feature2": "Custom integrations",
+      "feature3": "Authentication system",
+      "feature4": "Performance monitoring",
+      "feature5": "Unlimited revisions",
+      "feature6": "6-month support",
+      "cta": "Let's Talk"
+    }
+  },
+  "testimonials": {
+    "badge": "Client Stories",
+    "heading": "What Our\nClients Say",
+    "t1Quote": "Ignis transformed our online presence completely. Our conversion rate tripled in the first month after launch.",
+    "t1Author": "Sarah Mitchell",
+    "t1Role": "CEO, Luminary Tech",
+    "t2Quote": "The attention to detail and performance optimization is unmatched. Our site loads in under a second globally.",
+    "t2Author": "Marcus Weber",
+    "t2Role": "Founder, Apex Digital",
+    "t3Quote": "Working with Ignis felt like having a world-class team dedicated entirely to our success.",
+    "t3Author": "Elena Kozlov",
+    "t3Role": "CMO, NovaBrand"
+  },
+  "contact": {
+    "badge": "Get In Touch",
+    "heading": "Ready to\nIgnite Your Brand?",
+    "subheading": "Let's build something extraordinary together. Tell us about your project and we'll get back to you within 24 hours.",
+    "cta": "Start Your Project",
+    "emailLabel": "Or email us directly",
+    "email": "hello@ignis.studio",
+    "bookCall": "Book a Free Call"
+  },
+  "footer": {
+    "tagline": "Crafting digital fire since 2020.",
+    "copyright": "© 2025 Ignis Web Studio. All rights reserved.",
+    "madeBy": "Crafted by Ignis"
+  }
+}

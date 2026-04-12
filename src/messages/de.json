@@ -1,0 +1,150 @@
+{
+  "nav": {
+    "services": "Leistungen",
+    "work": "Projekte",
+    "process": "Prozess",
+    "pricing": "Preise",
+    "contact": "Kontakt",
+    "startProject": "Projekt Starten"
+  },
+  "hero": {
+    "badge": "Web-Entwicklungsstudio",
+    "headline1": "Wir Bauen",
+    "headline2": "Digitales Feuer",
+    "subheadline": "Ignis entwickelt hochperformante Webseiten und Webanwendungen, die Marken entfachen und Wachstum beschleunigen.",
+    "ctaPrimary": "Unsere Arbeiten",
+    "ctaSecondary": "Projekt Starten",
+    "scrollText": "Scrollen zum Entdecken",
+    "stat1Value": "50+",
+    "stat1Label": "Abgeschlossene Projekte",
+    "stat2Value": "98%",
+    "stat2Label": "Kundenzufriedenheit",
+    "stat3Value": "5x",
+    "stat3Label": "Durchschn. Traffic-Wachstum"
+  },
+  "services": {
+    "badge": "Was Wir Bauen",
+    "heading": "Drei Leistungen,\nUnbegrenztes Potenzial",
+    "subheading": "Von schnellen Landingpages bis hin zu komplexen Webanwendungen — gebaut für Performance, gestaltet für Conversions.",
+    "cta": "Projekt Starten",
+    "landing": {
+      "title": "Landingpages",
+      "description": "Hochkonvertierende, blitzschnelle Landingpages, die Besucher in Kunden verwandeln.",
+      "feature1": "Conversion-optimiertes Layout",
+      "feature2": "Unter 2s Ladezeit",
+      "feature3": "A/B-Testing bereit",
+      "feature4": "Analytics integriert",
+      "cta": "Landingpage Anfragen"
+    },
+    "business": {
+      "title": "Unternehmenswebseiten",
+      "description": "Professionelle mehrseitige Webseiten, die Autorität aufbauen und Geschäftswachstum fördern.",
+      "feature1": "Individuelle CMS-Integration",
+      "feature2": "SEO-Architektur",
+      "feature3": "Mehrsprachige Unterstützung",
+      "feature4": "Performance-first Entwicklung",
+      "cta": "Webseite Anfragen"
+    },
+    "webapp": {
+      "title": "Webanwendungen",
+      "description": "Full-Stack-Webanwendungen für skalierbare Performance — von SaaS bis interne Tools.",
+      "feature1": "Skalierbare Architektur",
+      "feature2": "Authentifizierung & Autorisierung",
+      "feature3": "Echtzeit-Funktionen",
+      "feature4": "API-Integration",
+      "cta": "App Entwickeln"
+    }
+  },
+  "work": {
+    "badge": "Unsere Projekte",
+    "heading": "Projekte, Die\nResultate Entfachen",
+    "subheading": "Eine Auswahl von Projekten, die unseren Ansatz zeigen — präzise Strategie, moderne Entwicklung und messbare Ergebnisse.",
+    "filterAll": "Alle Projekte",
+    "filterLanding": "Landingpages",
+    "filterBusiness": "Unternehmenswebseiten",
+    "filterApp": "Webanwendungen",
+    "viewProject": "Projekt Ansehen"
+  },
+  "process": {
+    "badge": "Wie Wir Arbeiten",
+    "heading": "Vom Funken\nbis zum Launch",
+    "subheading": "Ein klarer, kollaborativer Prozess, der Sie in jeder Phase in der Kontrolle hält.",
+    "step1Title": "Entdeckung",
+    "step1Desc": "Wir tauchen tief in Ihre Ziele, Zielgruppe und den Wettbewerb ein, um eine Gewinnerstrategie zu entwickeln.",
+    "step2Title": "Design",
+    "step2Desc": "High-Fidelity-Wireframes und pixelgenaue Designs, die mit Ihrer Markenidentität gestaltet werden.",
+    "step3Title": "Entwicklung",
+    "step3Desc": "Sauberer, performanter Code mit modernen Technologien und Best Practices entwickelt.",
+    "step4Title": "Launch",
+    "step4Desc": "Gründliche Tests, Bereitstellung und laufende Unterstützung für Ihren Erfolg."
+  },
+  "pricing": {
+    "badge": "Investition",
+    "heading": "Transparente\nPreise",
+    "subheading": "Keine versteckten Gebühren. Keine Überraschungen. Nur außergewöhnliche Arbeit zu einem fairen Preis.",
+    "mostPopular": "Beliebteste",
+    "from": "Ab",
+    "starter": {
+      "name": "Starter",
+      "price": "€349",
+      "description": "Perfekt für Einzelpersonen und kleine Unternehmen, die eine starke Online-Präsenz benötigen.",
+      "feature1": "Einseitige Landingpage",
+      "feature2": "Mobil responsiv",
+      "feature3": "Kontaktformular",
+      "feature4": "Basis-SEO-Setup",
+      "feature5": "2 Revisionsrunden",
+      "cta": "Loslegen"
+    },
+    "growth": {
+      "name": "Wachstum",
+      "price": "€997",
+      "description": "Für wachsende Unternehmen, die eine umfassende digitale Präsenz benötigen.",
+      "feature1": "Bis zu 8 Seiten",
+      "feature2": "Individuelles CMS",
+      "feature3": "Erweitertes SEO",
+      "feature4": "Analytics-Setup",
+      "feature5": "4 Revisionsrunden",
+      "feature6": "3-Monats-Support",
+      "cta": "Beliebteste"
+    },
+    "scale": {
+      "name": "Ignite",
+      "price": "Individuell",
+      "description": "Voll ausgestattete Webanwendungen für Performance und Wachstum entwickelt.",
+      "feature1": "Full-Stack-Webanwendung",
+      "feature2": "Individuelle Integrationen",
+      "feature3": "Authentifizierungssystem",
+      "feature4": "Performance-Monitoring",
+      "feature5": "Unbegrenzte Revisionen",
+      "feature6": "6-Monats-Support",
+      "cta": "Sprechen Wir"
+    }
+  },
+  "testimonials": {
+    "badge": "Kundenstimmen",
+    "heading": "Was Unsere\nKunden Sagen",
+    "t1Quote": "Ignis hat unsere Online-Präsenz vollständig transformiert. Unsere Conversion-Rate hat sich im ersten Monat nach dem Launch verdreifacht.",
+    "t1Author": "Sarah Mitchell",
+    "t1Role": "CEO, Luminary Tech",
+    "t2Quote": "Die Liebe zum Detail und die Performance-Optimierung ist unübertroffen. Unsere Website lädt weltweit in unter einer Sekunde.",
+    "t2Author": "Marcus Weber",
+    "t2Role": "Gründer, Apex Digital",
+    "t3Quote": "Die Arbeit mit Ignis fühlte sich an wie ein erstklassiges Team zu haben, das sich ganz unserem Erfolg widmet.",
+    "t3Author": "Elena Kozlov",
+    "t3Role": "CMO, NovaBrand"
+  },
+  "contact": {
+    "badge": "In Kontakt Treten",
+    "heading": "Bereit Ihre\nMarke zu Entfachen?",
+    "subheading": "Lassen Sie uns gemeinsam etwas Außergewöhnliches aufbauen. Erzählen Sie uns von Ihrem Projekt und wir melden uns innerhalb von 24 Stunden.",
+    "cta": "Projekt Starten",
+    "emailLabel": "Oder schreiben Sie uns direkt",
+    "email": "hello@ignis.studio",
+    "bookCall": "Kostenloses Gespräch Buchen"
+  },
+  "footer": {
+    "tagline": "Digitales Feuer entfachen seit 2020.",
+    "copyright": "© 2025 Ignis Web Studio. Alle Rechte vorbehalten.",
+    "madeBy": "Entwickelt von Ignis"
+  }
+}

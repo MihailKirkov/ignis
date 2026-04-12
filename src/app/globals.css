@@ -1,26 +1,155 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  /* === IGNIS BRAND COLORS === */
+  --color-ignis: #ff6b2c;
+  --color-ignis-dim: #cc4700;
+  --color-ignis-bright: #ff8a50;
+  --color-ignis-glow: #ffb347;
+  --color-ignis-red: #ff3d00;
+  --color-ember: #ff9a3c;
+  --color-gold: #ffcb47;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  /* === BACKGROUNDS === */
+  --color-bg: #06060a;
+  --color-surface: #0d0d14;
+  --color-surface-2: #13131d;
+  --color-surface-3: #1a1a27;
+  --color-border: #1e1e2e;
+  --color-border-bright: #2a2a3e;
+
+  /* === TEXT === */
+  --color-text: #f0f0ee;
+  --color-text-secondary: #8e8ea8;
+  --color-text-muted: #4a4a62;
+
+  /* === FONTS === */
+  --font-display: var(--font-space-grotesk);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* === EASINGS === */
+  --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-sharp: cubic-bezier(0.76, 0, 0.24, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* === GLOBAL RESETS & BASE === */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* === CUSTOM SCROLLBAR === */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-ignis-dim);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-ignis);
+}
+
+/* === SELECTION === */
+::selection {
+  background: var(--color-ignis);
+  color: #fff;
+}
+
+/* === UTILITY CLASSES === */
+.font-display {
+  font-family: var(--font-display), var(--font-sans), system-ui, sans-serif;
+}
+
+.text-gradient-ignis {
+  background: linear-gradient(135deg, var(--color-ignis) 0%, var(--color-gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-fire {
+  background: linear-gradient(135deg, var(--color-ignis-red) 0%, var(--color-ignis) 40%, var(--color-gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glow-ignis {
+  box-shadow: 0 0 40px rgba(255, 107, 44, 0.3);
+}
+
+.glow-ignis-sm {
+  box-shadow: 0 0 20px rgba(255, 107, 44, 0.2);
+}
+
+.border-ignis-gradient {
+  border: 1px solid transparent;
+  background: linear-gradient(var(--color-surface-2), var(--color-surface-2)) padding-box,
+              linear-gradient(135deg, var(--color-ignis-dim), transparent 50%) border-box;
+}
+
+/* === ANIMATIONS === */
+@keyframes ember-rise {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-100vh) scale(0); opacity: 0; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes float-subtle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* === NOISE TEXTURE OVERLAY === */
+.noise-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.03;
 }
