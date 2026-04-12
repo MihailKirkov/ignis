@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import { useTranslations } from 'next-intl';
+import { useProjectModal, type ServiceKey } from '@/components/ui/ProjectModal';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -33,15 +34,16 @@ function CheckIcon({ featured }: { featured: boolean }) {
 /* ──────────────────────── Tier config ─────────────────────────── */
 
 const TIERS = [
-  { key: 'starter' as const, featured: false, showFrom: true,  featureCount: 5 },
-  { key: 'growth'  as const, featured: true,  showFrom: true,  featureCount: 6 },
-  { key: 'scale'   as const, featured: false, showFrom: false, featureCount: 6 },
+  { key: 'starter' as const, featured: false, showFrom: true,  featureCount: 5, service: 'landing'  as ServiceKey },
+  { key: 'growth'  as const, featured: true,  showFrom: true,  featureCount: 6, service: 'business' as ServiceKey },
+  { key: 'scale'   as const, featured: false, showFrom: false, featureCount: 6, service: 'webapp'   as ServiceKey },
 ] as const;
 
 /* ──────────────────────── Component ───────────────────────────── */
 
 export function Pricing() {
   const t = useTranslations('pricing');
+  const { open: openModal } = useProjectModal();
   const sectionRef = useRef<HTMLElement>(null);
   const headingRef = useRef<HTMLDivElement>(null);
   const gridRef    = useRef<HTMLDivElement>(null);
@@ -124,7 +126,7 @@ export function Pricing() {
           ref={gridRef}
           className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-5 items-center"
         >
-          {TIERS.map(({ key, featured, showFrom, featureCount }) => (
+          {TIERS.map(({ key, featured, showFrom, featureCount, service }) => (
             <PricingCard
               key={key}
               tierKey={key}
@@ -132,6 +134,7 @@ export function Pricing() {
               showFrom={showFrom}
               featureCount={featureCount}
               t={t}
+              onCta={() => openModal(service)}
             />
           ))}
         </div>
@@ -152,12 +155,14 @@ function PricingCard({
   showFrom,
   featureCount,
   t,
+  onCta,
 }: {
   tierKey: TKey;
   featured: boolean;
   showFrom: boolean;
   featureCount: number;
   t: TFunc;
+  onCta: () => void;
 }) {
   const featureKeys = Array.from({ length: featureCount }, (_, i) => `${tierKey}.feature${i + 1}` as Parameters<TFunc>[0]);
 
@@ -252,7 +257,7 @@ function PricingCard({
           {featureKeys.map((fKey) => (
             <li key={fKey} className="flex items-start gap-2.5">
               <CheckIcon featured={featured} />
-              <span className="text-sm text-text-secondary leading-snug">
+              <span className="text-sm text-text-secondary leading-relaxed">
                 {t(fKey)}
               </span>
             </li>
@@ -261,6 +266,7 @@ function PricingCard({
 
         {/* CTA */}
         <button
+          onClick={onCta}
           className={[
             'relative w-full py-3.5 rounded-xl text-sm font-semibold tracking-wide transition-all duration-300 overflow-hidden cursor-pointer',
             featured

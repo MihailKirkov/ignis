@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { usePathname, useRouter, Link } from '@/i18n/navigation';
+import { useProjectModal } from '@/components/ui/ProjectModal';
 
 const LOCALES = [
   { code: 'en', label: 'EN', full: 'English' },
@@ -20,6 +21,7 @@ const NAV_LINKS = [
 
 export default function Navbar() {
   const t = useTranslations('nav');
+  const { open: openModal } = useProjectModal();
   const locale = useLocale();
   const pathname = usePathname();
   const router = useRouter();
@@ -109,7 +111,7 @@ export default function Navbar() {
             </Link>
 
             {/* Desktop Nav Links */}
-            <div className="hidden lg:flex items-center gap-8">
+            <div className="hidden lg:flex items-center gap-5 xl:gap-8">
               {NAV_LINKS.map(({ key, href }) => (
                 <button
                   key={key}
@@ -169,7 +171,7 @@ export default function Navbar() {
 
               {/* CTA Button */}
               <button
-                onClick={() => handleNavClick('#contact')}
+                onClick={() => openModal()}
                 className="relative group px-5 py-2 text-sm font-semibold text-white overflow-hidden rounded-lg cursor-pointer"
               >
                 <span className="absolute inset-0 bg-ignis transition-all duration-300 group-hover:bg-ignis-bright" />
@@ -249,7 +251,7 @@ export default function Navbar() {
               ))}
             </div>
             <button
-              onClick={() => handleNavClick('#contact')}
+              onClick={() => { setMenuOpen(false); openModal(); }}
               className="w-full py-4 text-base font-semibold text-white rounded-xl cursor-pointer"
               style={{ background: 'linear-gradient(135deg, #ff6b2c, #ffb347)' }}
             >

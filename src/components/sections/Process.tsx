@@ -276,7 +276,7 @@ export function Process() {
             MOBILE / TABLET — Centered alternating timeline
             ══════════════════════════════════════════════ */}
         <div ref={mobileRef} className="lg:hidden">
-          <div className="relative max-w-sm mx-auto">
+          <div className="relative max-w-sm sm:max-w-md mx-auto">
 
             {/* Vertical track line — centred, starts at first icon centre */}
             <div
@@ -313,7 +313,7 @@ export function Process() {
                         <h3 data-step-title className="font-display text-sm font-bold leading-snug">
                           {step.title}
                         </h3>
-                        <p className="text-xs text-text-muted leading-relaxed">
+                        <p className="text-xs text-text-muted leading-relaxed [hyphens:auto]">
                           {step.desc}
                         </p>
                       </>
@@ -343,7 +343,7 @@ export function Process() {
                         <h3 data-step-title className="font-display text-sm font-bold leading-snug">
                           {step.title}
                         </h3>
-                        <p className="text-xs text-text-muted leading-relaxed">
+                        <p className="text-xs text-text-muted leading-relaxed [hyphens:auto]">
                           {step.desc}
                         </p>
                       </>

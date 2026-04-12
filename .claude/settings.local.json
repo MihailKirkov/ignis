@@ -8,7 +8,9 @@
       "Bash(curl -s http://localhost:3000/en)",
       "Bash(curl -s http://localhost:3000/bg)",
       "Bash(curl -s http://localhost:3000/de)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Bash(npx tsc:*)",
+      "Bash(ls:*)"
     ]
   }
 }

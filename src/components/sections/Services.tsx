@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { useProjectModal, type ServiceKey } from '@/components/ui/ProjectModal';
 import { useTranslations } from 'next-intl';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -176,7 +177,7 @@ function ServiceCard({ icon, accentIndex, title, description, features, cta, onC
 
       {/* Title */}
       <h3
-        className="font-display text-xl font-bold text-text mb-3 tracking-tight"
+        className="font-display text-lg sm:text-xl font-bold text-text mb-3 tracking-tight break-words"
         style={{ transform: 'translateZ(15px)' }}
       >
         {title}
@@ -193,9 +194,9 @@ function ServiceCard({ icon, accentIndex, title, description, features, cta, onC
       {/* Features */}
       <ul className="flex flex-col gap-2.5 mb-8 flex-1" style={{ transform: 'translateZ(10px)' }}>
         {features.map((feature) => (
-          <li key={feature} className="flex items-center gap-3 text-sm text-text-secondary">
+          <li key={feature} className="flex items-start gap-3 text-sm text-text-secondary leading-snug">
             <span
-              className={`flex-shrink-0 w-4 h-4 rounded-full flex items-center justify-center bg-gradient-to-br ${gradient}`}
+              className={`flex-shrink-0 mt-0.5 w-4 h-4 rounded-full flex items-center justify-center bg-gradient-to-br ${gradient}`}
               style={{ opacity: 0.85 }}
             >
               <svg className="w-2.5 h-2.5 text-white" viewBox="0 0 10 10" fill="none">
@@ -239,6 +240,7 @@ function ServiceCard({ icon, accentIndex, title, description, features, cta, onC
 
 export default function Services() {
   const t = useTranslations('services');
+  const { open: openModal } = useProjectModal();
   const sectionRef = useRef<HTMLElement>(null);
   const headingRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
@@ -316,9 +318,6 @@ export default function Services() {
 
     return () => ctx.revert();
   }, []);
-
-  const scrollToContact = () =>
-    document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
 
   const cards = [
     {
@@ -411,8 +410,8 @@ export default function Services() {
           ref={cardsRef}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {cards.map((card) => (
-            <ServiceCard key={card.title} {...card} onCta={scrollToContact} />
+          {(['landing', 'business', 'webapp'] as ServiceKey[]).map((svc, i) => (
+            <ServiceCard key={cards[i].title} {...cards[i]} onCta={() => openModal(svc)} />
           ))}
         </div>
       </div>

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import { useTranslations } from 'next-intl';
+import { useProjectModal } from '@/components/ui/ProjectModal';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -37,6 +38,7 @@ function IconLinkedIn() {
 
 export function Contact() {
   const t = useTranslations('contact');
+  const { open: openModal } = useProjectModal();
   const sectionRef = useRef<HTMLElement>(null);
   const orb1Ref    = useRef<HTMLDivElement>(null);
   const orb2Ref    = useRef<HTMLDivElement>(null);
@@ -165,9 +167,10 @@ export function Contact() {
         </p>
 
         {/* CTA buttons */}
-        <div data-gsap="cta-buttons" className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+        <div data-gsap="cta-buttons" className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 mb-12">
           {/* Primary */}
           <button
+            onClick={() => openModal()}
             className="relative group inline-flex items-center gap-2.5 px-8 py-4 rounded-xl text-sm font-semibold text-white overflow-hidden cursor-pointer transition-transform duration-300 hover:scale-[1.03]"
             style={{
               background: 'linear-gradient(135deg, #ff6b2c 0%, #ffb347 100%)',
@@ -186,6 +189,7 @@ export function Contact() {
 
           {/* Secondary */}
           <button
+            onClick={() => window.open('https://calendly.com/YOUR_CALENDLY_URL', '_blank')}
             className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-xl text-sm font-semibold text-text-secondary cursor-pointer transition-all duration-300 hover:text-text hover:border-ignis/50"
             style={{ border: '1px solid #2a2a3e' }}
           >
