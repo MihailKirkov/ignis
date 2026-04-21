@@ -301,9 +301,9 @@ function Modal({
   async function handleSubmit() {
     setSubmitState('submitting');
     try {
-      const res = await fetch('https://formspree.io/f/YOUR_ID', {
+      const res = await fetch('/api/contact', {
         method:  'POST',
-        headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           service:     form.service,
           description: form.description,
@@ -411,7 +411,7 @@ function Modal({
                   {t('successSub')}
                 </p>
                 <a
-                  href="https://calendly.com/YOUR_CALENDLY_URL"
+                  href={process.env.NEXT_PUBLIC_CALENDLY_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-white"
