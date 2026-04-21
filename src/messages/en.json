@@ -15,12 +15,7 @@
     "ctaPrimary": "View Our Work",
     "ctaSecondary": "Start a Project",
     "scrollText": "Scroll to explore",
-    "stat1Value": "50+",
-    "stat1Label": "Projects Delivered",
-    "stat2Value": "98%",
-    "stat2Label": "Client Satisfaction",
-    "stat3Value": "5x",
-    "stat3Label": "Avg. Traffic Growth"
+    "techStackLabel": "Expertise In"
   },
   "services": {
     "badge": "What We Build",
@@ -170,8 +165,8 @@
     "budgetLabel": "Budget range",
     "b500": "€349 – €1,000",
     "b1k": "€1,000 – €3,000",
-    "b3k": "€3,000 – €8,000",
-    "b8k": "€8,000+",
+    "b3k": "€3,000 – €5,000",
+    "b8k": "€5,000+",
     "timelineLabel": "Timeline",
     "tAsap": "ASAP",
     "t1to2": "1–2 months",

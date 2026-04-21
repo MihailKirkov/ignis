@@ -15,12 +15,7 @@
     "ctaPrimary": "Unsere Arbeiten",
     "ctaSecondary": "Projekt Starten",
     "scrollText": "Scrollen zum Entdecken",
-    "stat1Value": "50+",
-    "stat1Label": "Abgeschlossene Projekte",
-    "stat2Value": "98%",
-    "stat2Label": "Kundenzufriedenheit",
-    "stat3Value": "5x",
-    "stat3Label": "Durchschn. Traffic-Wachstum"
+    "techStackLabel": "Expertise In"
   },
   "services": {
     "badge": "Was Wir Bauen",
@@ -170,8 +165,8 @@
     "budgetLabel": "Budgetrahmen",
     "b500": "€349 – €1.000",
     "b1k": "€1.000 – €3.000",
-    "b3k": "€3.000 – €8.000",
-    "b8k": "€8.000+",
+    "b3k": "€3.000 – €5.000",
+    "b8k": "€5.000+",
     "timelineLabel": "Zeitrahmen",
     "tAsap": "So schnell wie möglich",
     "t1to2": "1–2 Monate",
