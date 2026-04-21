@@ -189,7 +189,7 @@ export function Contact() {
 
           {/* Secondary */}
           <button
-            onClick={() => window.open('https://calendly.com/YOUR_CALENDLY_URL', '_blank')}
+            onClick={() => window.open('https://calendly.com/mihailkirkov04/30min', '_blank')}
             className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-xl text-sm font-semibold text-text-secondary cursor-pointer transition-all duration-300 hover:text-text hover:border-ignis/50"
             style={{ border: '1px solid #2a2a3e' }}
           >
@@ -215,7 +215,7 @@ export function Contact() {
         </div>
 
         {/* Social links */}
-        <div data-gsap="cta-social" className="flex items-center justify-center gap-4">
+        {/* <div data-gsap="cta-social" className="flex items-center justify-center gap-4">
           {[
             { icon: <IconX />,        href: '#', label: 'X / Twitter' },
             { icon: <IconGitHub />,   href: '#', label: 'GitHub' },
@@ -231,7 +231,7 @@ export function Contact() {
               {icon}
             </a>
           ))}
-        </div>
+        </div> */}
 
       </div>
     </section>

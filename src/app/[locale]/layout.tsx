@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono, Space_Grotesk } from 'next/font/google';
+import { Geist, Geist_Mono, Space_Grotesk, Onest } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
@@ -19,6 +19,12 @@ const geistMono = Geist_Mono({
 const spaceGrotesk = Space_Grotesk({
   variable: '--font-space-grotesk',
   subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+});
+
+const onest = Onest({
+  variable: '--font-onest',
+  subsets: ['latin', 'cyrillic'],
   weight: ['300', '400', '500', '600', '700'],
 });
 
@@ -47,7 +53,7 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable}`}
+      className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} ${onest.variable}`}
       suppressHydrationWarning
     >
       <body className="bg-bg text-text antialiased overflow-x-hidden">
