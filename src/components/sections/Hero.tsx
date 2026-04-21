@@ -8,6 +8,110 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
+const TECH_STACK = [
+  {
+    name: 'Next.js',
+    svg: (
+      <svg viewBox="0 0 180 180" fill="none" className="w-full h-full" aria-hidden="true">
+        <circle cx="90" cy="90" r="87" stroke="currentColor" strokeWidth="5" />
+        <path
+          d="M60 125V57l58 68V57"
+          stroke="currentColor"
+          strokeWidth="8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          fill="none"
+        />
+      </svg>
+    ),
+  },
+  {
+    name: 'React',
+    svg: (
+      <svg viewBox="0 0 100 100" fill="none" className="w-full h-full" aria-hidden="true">
+        <circle cx="50" cy="50" r="8" fill="currentColor" />
+        <ellipse cx="50" cy="50" rx="46" ry="17" stroke="currentColor" strokeWidth="3.5" />
+        <ellipse cx="50" cy="50" rx="46" ry="17" stroke="currentColor" strokeWidth="3.5" transform="rotate(60 50 50)" />
+        <ellipse cx="50" cy="50" rx="46" ry="17" stroke="currentColor" strokeWidth="3.5" transform="rotate(-60 50 50)" />
+      </svg>
+    ),
+  },
+  {
+    name: 'TypeScript',
+    svg: (
+      <svg viewBox="0 0 100 100" className="w-full h-full" aria-hidden="true">
+        <rect x="3" y="3" width="94" height="94" rx="12" fill="currentColor" fillOpacity="0.15" />
+        <text
+          x="13"
+          y="72"
+          fontSize="50"
+          fontWeight="800"
+          fill="currentColor"
+          fontFamily="system-ui,-apple-system,sans-serif"
+        >
+          TS
+        </text>
+      </svg>
+    ),
+  },
+  {
+    name: 'Tailwind CSS',
+    svg: (
+      <svg viewBox="0 0 54 33" fill="none" className="w-full h-full" aria-hidden="true">
+        <path
+          d="M27 0C19.8 0 15.3 3.6 13.5 10.8c2.7-3.6 5.85-4.95 9.45-4.05 2.03.508 3.48 1.98 5.085 3.615C30.63 13.02 33.64 16.05 40.5 16.05c7.2 0 11.7-3.6 13.5-10.8-2.7 3.6-5.85 4.95-9.45 4.05-2.03-.508-3.48-1.98-5.085-3.615C37.37 3.03 34.36 0 27 0zM13.5 16.05C6.3 16.05 1.8 19.65 0 26.85c2.7-3.6 5.85-4.95 9.45-4.05 2.03.508 3.48 1.98 5.085 3.615 2.595 2.648 5.605 5.678 12.465 5.678 7.2 0 11.7-3.6 13.5-10.8-2.7 3.6-5.85 4.95-9.45 4.05-2.03-.508-3.48-1.98-5.085-3.615C23.87 19.08 20.86 16.05 13.5 16.05z"
+          fill="currentColor"
+        />
+      </svg>
+    ),
+  },
+  {
+    name: 'Supabase',
+    svg: (
+      <svg viewBox="0 0 109 113" fill="none" className="w-full h-full" aria-hidden="true">
+        <path
+          d="M63.708 110.284c-2.86 3.601-8.658 1.628-8.727-2.97L53.974 40.063h45.22c8.19 0 12.759 9.46 7.665 15.875L63.708 110.284z"
+          fill="currentColor"
+        />
+        <path
+          d="M45.317 2.071c2.86-3.601 8.657-1.628 8.726 2.97l.547 67.251H9.832C1.641 72.292-2.927 62.832 2.166 56.417L45.317 2.071z"
+          fill="currentColor"
+          fillOpacity="0.5"
+        />
+      </svg>
+    ),
+  },
+  {
+    name: 'Three.js',
+    svg: (
+      <svg viewBox="0 0 100 100" fill="none" className="w-full h-full" aria-hidden="true">
+        <rect x="20" y="35" width="42" height="40" stroke="currentColor" strokeWidth="4" />
+        <path d="M20 35L36 18L78 18L62 35" stroke="currentColor" strokeWidth="4" fill="none" />
+        <path d="M62 35L78 18L78 58L62 75" stroke="currentColor" strokeWidth="4" fill="none" />
+      </svg>
+    ),
+  },
+  {
+    name: 'Node.js',
+    svg: (
+      <svg viewBox="0 0 100 116" fill="none" className="w-full h-full" aria-hidden="true">
+        <path d="M50 5L95 29V87L50 111L5 87V29L50 5Z" stroke="currentColor" strokeWidth="4" />
+        <text
+          x="50"
+          y="66"
+          textAnchor="middle"
+          fontSize="18"
+          fontWeight="700"
+          fill="currentColor"
+          fontFamily="system-ui,-apple-system,sans-serif"
+        >
+          NODE
+        </text>
+      </svg>
+    ),
+  },
+];
+
 export function Hero() {
   const t = useTranslations('hero');
   const { open: openModal } = useProjectModal();
@@ -37,10 +141,14 @@ export function Hero() {
           { opacity: 0, y: 20 },
           { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out', stagger: 0.1 },
           '-=0.4')
-        .fromTo('[data-gsap="stats"]',
-          { opacity: 0, y: 24 },
-          { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out', stagger: 0.08 },
-          '-=0.3');
+        .fromTo('[data-gsap="tech-label"]',
+          { opacity: 0, y: 16 },
+          { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' },
+          '-=0.3')
+        .fromTo('[data-gsap="tech-logo"]',
+          { opacity: 0, y: 16 },
+          { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out', stagger: 0.07 },
+          '-=0.4');
 
       gsap.to('[data-gsap="hero-content"]', {
         y: -80,
@@ -110,7 +218,7 @@ export function Hero() {
               {t('subheadline')}
             </p>
 
-            <div className="flex flex-wrap items-center gap-4 mb-20">
+            <div className="flex flex-wrap items-center gap-4 mb-16">
               <button
                 data-gsap="cta"
                 onClick={() => document.querySelector('#work')?.scrollIntoView({ behavior: 'smooth' })}
@@ -145,21 +253,26 @@ export function Hero() {
               </button>
             </div>
 
-            <div className="flex flex-wrap gap-10">
-              {[
-                { val: t('stat1Value'), label: t('stat1Label') },
-                { val: t('stat2Value'), label: t('stat2Label') },
-                { val: t('stat3Value'), label: t('stat3Label') },
-              ].map(({ val, label }) => (
-                <div key={label} data-gsap="stats" className="flex flex-col gap-1">
-                  <span className="font-display text-3xl font-bold text-gradient-ignis">
-                    {val}
-                  </span>
-                  <span className="text-xs text-text-muted tracking-wide uppercase">
-                    {label}
-                  </span>
-                </div>
-              ))}
+            {/* Tech stack strip */}
+            <div>
+              <p
+                data-gsap="tech-label"
+                className="text-[10px] font-semibold tracking-[0.22em] uppercase text-text-muted mb-5"
+              >
+                {t('techStackLabel')}
+              </p>
+              <div className="flex flex-wrap items-center gap-7 lg:gap-9">
+                {TECH_STACK.map(({ name, svg }) => (
+                  <div
+                    key={name}
+                    data-gsap="tech-logo"
+                    title={name}
+                    className="w-8 h-8 text-white/25 hover:text-white/75 transition-colors duration-300 cursor-default"
+                  >
+                    {svg}
+                  </div>
+                ))}
+              </div>
             </div>
 
           </div>
@@ -171,9 +284,9 @@ export function Hero() {
         <span className="text-xs text-text-muted tracking-[0.2em] uppercase">
           {t('scrollText')}
         </span>
-        <div className="w-px h-12 relative overflow-hidden">
+        <div className="w-0.5 h-12 relative overflow-hidden">
           <div
-            className="absolute inset-x-0 top-0 h-full bg-gradient-to-b from-ignis to-transparent"
+            className="absolute inset-x-0 top-0 h-full bg-linear-to-b from-ignis to-transparent"
             style={{ animation: 'scrollLine 1.8s ease-in-out infinite' }}
           />
         </div>
