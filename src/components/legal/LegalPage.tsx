@@ -77,20 +77,17 @@ export function LegalPage({ content }: LegalPageProps) {
                 </a>
               ),
               ul: ({ children }) => (
-                <ul className="text-text-secondary mb-4 ml-4 space-y-2 list-none">
+                <ul className="text-text-secondary mb-4 ml-6 space-y-2 list-disc marker:text-ignis">
                   {children}
                 </ul>
               ),
               ol: ({ children }) => (
-                <ol className="text-text-secondary mb-4 ml-4 space-y-2 list-decimal list-inside">
+                <ol className="text-text-secondary mb-4 ml-6 space-y-2 list-decimal marker:text-ignis">
                   {children}
                 </ol>
               ),
               li: ({ children }) => (
-                <li className="flex gap-2 leading-relaxed">
-                  <span className="text-ignis mt-1.5 flex-shrink-0">&#8226;</span>
-                  <span>{children}</span>
-                </li>
+                <li className="leading-relaxed pl-1">{children}</li>
               ),
               hr: () => (
                 <hr className="border-border my-10" />
