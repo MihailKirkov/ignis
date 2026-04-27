@@ -2,226 +2,89 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import type { Project } from './work/types';
+import { ProjectModal } from './work/ProjectModal';
 
 gsap.registerPlugin(ScrollTrigger);
 
 /* ────────────────────────── Project data ──────────────────────────── */
 
-type Category = 'landing' | 'business' | 'webapp';
-
-interface Project {
-  id: string;
-  title: string;
-  category: Category;
-  description: string;
-  fromColor: string;
-  toColor: string;
-  accentColor: string;
-}
-
 const PROJECTS: Project[] = [
   {
-    id: 'luminary',
-    title: 'Luminary Co.',
+    id: 'kaboom-bg',
+    titleKey: 'projects.kaboom-bg.title',
+    descriptionKey: 'projects.kaboom-bg.description',
     category: 'landing',
-    description: 'B2B SaaS landing page that tripled trial signups in 30 days through conversion-led design.',
-    fromColor: '#07071e',
-    toColor: '#110d32',
-    accentColor: '#7c3aed',
+    accent: '#ed3a3a',
+    thumbnail: '/images/work/kaboom-bg/thumb.webp',
+    caseStudy: {
+      hero: '/images/work/kaboom-bg/hero.png',
+      gallery: [
+        '/images/work/kaboom/gallery-1.webp',
+        '/images/work/kaboom/gallery-2.webp',
+      ],
+      challengeKey: 'projects.kaboom-bg.challenge',
+      solutionKey: 'projects.kaboom-bg.solution',
+      resultsKeys: [],
+      stack: ['Next.js', 'Tailwind', 'GSAP'],
+      liveUrl: 'https://kaboom.bg',
+      durationKey: 'projects.kaboom-bg.duration',
+      roleKey: 'projects.kaboom-bg.role',
+    },
   },
   {
-    id: 'apex',
-    title: 'Apex Digital',
+    id: 'lead-hq',
+    titleKey: 'projects.lead-hq.title',
+    descriptionKey: 'projects.lead-hq.description',
     category: 'webapp',
-    description: 'Real-time analytics dashboard serving 40k+ daily users with sub-200ms query response.',
-    fromColor: '#021414',
-    toColor: '#071e1c',
-    accentColor: '#10b981',
+    accent: '#ff6b35',
+    thumbnail: '/images/work/lead-hq/thumb.webp',
+    caseStudy: {
+      hero: '/images/work/lead-hq/hero.webp',
+      gallery: ['/images/work/lead-hq/lead-hq-leads-table.webp', '/images/work/lead-hq/lead-hq-scraper.webp'],
+      challengeKey: 'projects.lead-hq.challenge',
+      solutionKey: 'projects.lead-hq.solution',
+      resultsKeys: [],
+      stack: ['Next.js', 'Supabase', 'Python', 'OpenAI'],
+      durationKey: 'projects.lead-hq.duration',
+      roleKey: 'projects.lead-hq.role',
+    },
   },
   {
-    id: 'novabrand',
-    title: 'NovaBrand Agency',
+    id: 'the-sharp-cut',
+    titleKey: 'projects.the-sharp-cut.title',
+    descriptionKey: 'projects.the-sharp-cut.description',
     category: 'business',
-    description: 'Creative agency site with headless CMS, portfolio showcase, and integrated lead capture.',
-    fromColor: '#130a16',
-    toColor: '#1c0a1e',
-    accentColor: '#ec4899',
-  },
-  {
-    id: 'flowmetrics',
-    title: 'FlowMetrics',
-    category: 'webapp',
-    description: 'SaaS platform for product metric tracking with customizable dashboards and smart alerts.',
-    fromColor: '#03080f',
-    toColor: '#070d1f',
-    accentColor: '#3b82f6',
-  },
-  {
-    id: 'ember',
-    title: 'Ember Collective',
-    category: 'landing',
-    description: 'Premium lifestyle brand launch with immersive scroll storytelling and animated product reveals.',
-    fromColor: '#160700',
-    toColor: '#1d0c00',
-    accentColor: '#f97316',
-  },
-  {
-    id: 'nordvik',
-    title: 'Nordvik Group',
-    category: 'business',
-    description: 'Corporate investment firm site built to communicate authority and acquire high-value clients.',
-    fromColor: '#07090e',
-    toColor: '#0b0f18',
-    accentColor: '#94a3b8',
+    accent: '#d4a853',
+    thumbnail: '/images/work/the-sharp-cut/thumb.webp',
+    caseStudy: {
+      hero: '/images/work/the-sharp-cut/hero.webp',
+      gallery: ['/images/work/the-sharp-cut/gallery-1.webp', '/images/work/the-sharp-cut/gallery-2.webp'],
+      challengeKey: 'projects.the-sharp-cut.challenge',
+      solutionKey: 'projects.the-sharp-cut.solution',
+      resultsKeys: [],
+      stack: ['Next.js', 'Tailwind'],
+      durationKey: 'projects.the-sharp-cut.duration',
+      roleKey: 'projects.the-sharp-cut.role',
+      liveUrl: 'https://the-sharp-cut.vercel.app/',
+    },
   },
 ];
 
-/* ─────────────────────── Website mockup placeholder ───────────────── */
-
-function ProjectMockup({
-  fromColor,
-  toColor,
-  accentColor,
-}: Pick<Project, 'fromColor' | 'toColor' | 'accentColor'>) {
-  return (
-    <div
-      className="absolute inset-0 overflow-hidden"
-      style={{ background: `linear-gradient(145deg, ${fromColor} 0%, ${toColor} 100%)` }}
-    >
-      {/* Dot-grid texture */}
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage: `radial-gradient(circle, ${accentColor}22 1px, transparent 1px)`,
-          backgroundSize: '22px 22px',
-        }}
-      />
-
-      {/* Browser chrome bar */}
-      <div
-        className="absolute top-0 inset-x-0 h-7 flex items-center px-3 gap-1.5"
-        style={{
-          background: 'rgba(255,255,255,0.03)',
-          borderBottom: '1px solid rgba(255,255,255,0.05)',
-        }}
-      >
-        {[0.28, 0.16, 0.1].map((op, i) => (
-          <div
-            key={i}
-            className="w-2 h-2 rounded-full flex-shrink-0"
-            style={{ background: `rgba(255,255,255,${op})` }}
-          />
-        ))}
-        <div
-          className="flex-1 mx-2 h-3 rounded-full"
-          style={{ background: 'rgba(255,255,255,0.06)' }}
-        />
-      </div>
-
-      {/* Mock navbar */}
-      <div
-        className="absolute top-7 inset-x-0 h-9 flex items-center justify-between px-4"
-        style={{ borderBottom: '1px solid rgba(255,255,255,0.04)' }}
-      >
-        <div className="w-14 h-2 rounded-sm" style={{ background: `${accentColor}b0` }} />
-        <div className="flex items-center gap-2.5">
-          {[0.2, 0.14, 0.09].map((op, i) => (
-            <div
-              key={i}
-              className="w-8 h-1.5 rounded-sm"
-              style={{ background: `rgba(255,255,255,${op})` }}
-            />
-          ))}
-          <div
-            className="w-16 h-5 rounded-md"
-            style={{
-              background: `${accentColor}45`,
-              border: `1px solid ${accentColor}65`,
-            }}
-          />
-        </div>
-      </div>
-
-      {/* Hero copy area */}
-      <div className="absolute top-20 left-5 right-5">
-        <div
-          className="w-20 h-2.5 rounded-full mb-3"
-          style={{ background: `${accentColor}40` }}
-        />
-        <div
-          className="w-4/5 h-4 rounded mb-2"
-          style={{ background: 'rgba(255,255,255,0.14)' }}
-        />
-        <div
-          className="w-3/5 h-4 rounded mb-3.5"
-          style={{ background: 'rgba(255,255,255,0.09)' }}
-        />
-        <div
-          className="w-full h-2 rounded mb-1.5"
-          style={{ background: 'rgba(255,255,255,0.07)' }}
-        />
-        <div
-          className="w-4/5 h-2 rounded mb-5"
-          style={{ background: 'rgba(255,255,255,0.05)' }}
-        />
-        <div className="flex items-center gap-2.5">
-          <div
-            className="w-20 h-6 rounded-lg"
-            style={{ background: `${accentColor}70` }}
-          />
-          <div
-            className="w-16 h-6 rounded-lg"
-            style={{
-              background: 'rgba(255,255,255,0.06)',
-              border: '1px solid rgba(255,255,255,0.1)',
-            }}
-          />
-        </div>
-      </div>
-
-      {/* Radial glow blob */}
-      <div
-        className="absolute bottom-6 right-5 w-28 h-28 rounded-full pointer-events-none"
-        style={{
-          background: `radial-gradient(circle, ${accentColor}30 0%, transparent 70%)`,
-          filter: 'blur(18px)',
-        }}
-      />
-
-      {/* Content card row */}
-      <div className="absolute bottom-5 left-4 right-4 flex gap-2.5">
-        {[0.07, 0.05, 0.035].map((op, i) => (
-          <div
-            key={i}
-            className="flex-1 h-10 rounded-xl"
-            style={{
-              background: `rgba(255,255,255,${op})`,
-              border: `1px solid rgba(255,255,255,${op * 1.6})`,
-            }}
-          />
-        ))}
-      </div>
-    </div>
-  );
-}
-
 /* ─────────────────────────── Project card ─────────────────────────── */
-
-const CATEGORY_LABELS: Record<Category, string> = {
-  landing: 'Landing Page',
-  business: 'Business Site',
-  webapp: 'Web App',
-};
 
 function ProjectCard({
   project,
-  viewLabel,
+  onOpen,
 }: {
   project: Project;
-  viewLabel: string;
+  onOpen: (project: Project, trigger: HTMLButtonElement) => void;
 }) {
+  const t = useTranslations('work') as (key: string) => string;
+
   return (
     <div
       data-category={project.category}
@@ -232,11 +95,22 @@ function ProjectCard({
         boxShadow: '0 4px 30px rgba(0,0,0,0.5)',
       }}
     >
-      {/* Mockup background */}
-      <ProjectMockup
-        fromColor={project.fromColor}
-        toColor={project.toColor}
-        accentColor={project.accentColor}
+      {/* Screenshot */}
+      <Image
+        src={project.thumbnail}
+        alt={t(project.titleKey)}
+        fill
+        sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+        className="object-cover object-top"
+        priority={false}
+      />
+
+      {/* Top gradient so category pill stays legible on any image */}
+      <div
+        className="absolute inset-x-0 top-0 h-24 z-[1] pointer-events-none"
+        style={{
+          background: 'linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 100%)',
+        }}
       />
 
       {/* Category pill */}
@@ -244,12 +118,12 @@ function ProjectCard({
         <span
           className="px-2.5 py-1 text-[10px] font-semibold tracking-widest uppercase rounded-full"
           style={{
-            background: `${project.accentColor}22`,
-            color: project.accentColor,
-            border: `1px solid ${project.accentColor}45`,
+            background: `${project.accent}22`,
+            color: project.accent,
+            border: `1px solid ${project.accent}45`,
           }}
         >
-          {CATEGORY_LABELS[project.category]}
+          {t(`category.${project.category}`)}
         </span>
       </div>
 
@@ -263,19 +137,26 @@ function ProjectCard({
         }}
       >
         <h3 className="font-display text-lg font-bold text-white mb-1.5 leading-tight">
-          {project.title}
+          {t(project.titleKey)}
         </h3>
         <p className="text-xs text-white/55 mb-5 leading-relaxed line-clamp-2">
-          {project.description}
+          {t(project.descriptionKey)}
         </p>
         <button
           className="self-start flex items-center gap-2 px-4 py-2 text-xs font-semibold text-white rounded-lg transition-all duration-200 hover:gap-3 cursor-pointer"
           style={{
-            background: `${project.accentColor}55`,
-            border: `1px solid ${project.accentColor}80`,
+            background: `${project.accent}55`,
+            border: `1px solid ${project.accent}80`,
+          }}
+          onClick={(e) => {
+            if (project.caseStudy) {
+              onOpen(project, e.currentTarget as HTMLButtonElement);
+            } else if (project.projectUrl) {
+              window.open(project.projectUrl, '_blank');
+            }
           }}
         >
-          {viewLabel}
+          {t('viewProject')}
           <svg
             className="w-3.5 h-3.5"
             fill="none"
@@ -292,7 +173,7 @@ function ProjectCard({
       <div
         className="absolute inset-0 z-10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
         style={{
-          boxShadow: `inset 0 0 0 1px ${project.accentColor}50, 0 0 40px ${project.accentColor}18`,
+          boxShadow: `inset 0 0 0 1px ${project.accent}50, 0 0 40px ${project.accent}18`,
         }}
       />
 
@@ -360,6 +241,9 @@ export default function Work() {
   const gridRef = useRef<HTMLDivElement>(null);
   const [activeFilter, setActiveFilter] = useState('all');
   const entranceDoneRef = useRef(false);
+
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [triggerElement, setTriggerElement] = useState<HTMLButtonElement | null>(null);
 
   const FILTERS = [
     { key: 'all', label: t('filterAll') },
@@ -435,13 +319,11 @@ export default function Work() {
     );
 
     const revealMatching = () => {
-      /* Pull hidden cards out of flow so the grid reflows */
       hiding.forEach((el) => {
         el.style.display = 'none';
         el.style.pointerEvents = 'none';
       });
 
-      /* Restore display on any matching card that was previously hidden */
       matching.forEach((el) => {
         if (el.style.display === 'none') {
           el.style.display = '';
@@ -460,7 +342,6 @@ export default function Work() {
       });
     };
 
-    /* Fade out visible non-matching cards first, then reflow */
     const visibleHiding = hiding.filter((el) => el.style.display !== 'none');
     if (visibleHiding.length > 0) {
       gsap.to(visibleHiding, {
@@ -538,11 +419,25 @@ export default function Work() {
             <ProjectCard
               key={project.id}
               project={project}
-              viewLabel={t('viewProject')}
+              onOpen={(proj, btn) => {
+                setTriggerElement(btn);
+                setSelectedProject(proj);
+              }}
             />
           ))}
         </div>
       </div>
+
+      {selectedProject && (
+        <ProjectModal
+          project={selectedProject}
+          onClose={() => {
+            setSelectedProject(null);
+            setTriggerElement(null);
+          }}
+          triggerElement={triggerElement}
+        />
+      )}
     </section>
   );
 }

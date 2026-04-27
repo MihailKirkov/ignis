@@ -58,7 +58,50 @@
     "filterLanding": "Целеви Страници",
     "filterBusiness": "Бизнес Уебсайтове",
     "filterApp": "Уеб Приложения",
-    "viewProject": "Виж Проекта"
+    "viewProject": "Виж Проекта",
+    "modal": {
+      "challenge": "TODO",
+      "solution": "TODO",
+      "results": "TODO",
+      "builtWith": "TODO",
+      "viewLiveSite": "TODO",
+      "startProject": "TODO",
+      "close": "TODO"
+    },
+    "category": {
+      "landing": "TODO",
+      "business": "TODO",
+      "webapp": "TODO"
+    },
+    "projects": {
+      "kaboom-bg": {
+        "title": "TODO",
+        "description": "TODO",
+        "challenge": "TODO",
+        "solution": "TODO",
+        "results": ["TODO"],
+        "duration": "TODO",
+        "role": "TODO"
+      },
+      "lead-hq": {
+        "title": "TODO",
+        "description": "TODO",
+        "challenge": "TODO",
+        "solution": "TODO",
+        "results": ["TODO"],
+        "duration": "TODO",
+        "role": "TODO"
+      },
+      "the-sharp-cut": {
+        "title": "TODO",
+        "description": "TODO",
+        "challenge": "TODO",
+        "solution": "TODO",
+        "results": ["TODO"],
+        "duration": "TODO",
+        "role": "TODO"
+      }
+    }
   },
   "process": {
     "badge": "Как Работим",
@@ -140,7 +183,12 @@
   "footer": {
     "tagline": "Създаваме дигитален огън от 2020.",
     "copyright": "© 2025 Ignis Web Studio. Всички права запазени.",
-    "madeBy": "Изработен от Ignis"
+    "madeBy": "Изработен от Ignis",
+    "legal": {
+      "privacyPolicy": "Политика за поверителност",
+      "termsOfService": "Условия за ползване",
+      "imprint": "Импресум"
+    }
   },
   "modal": {
     "title1": "Какво искате да изградите?",
