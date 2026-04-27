@@ -3,6 +3,11 @@
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 
+const LEGAL_LINKS = [
+  { key: 'privacyPolicy' as const, href: '/privacy-policy' },
+  { key: 'termsOfService' as const, href: '/terms-of-service' },
+] as const;
+
 const NAV_LINKS = [
   { key: 'services' as const, href: '#services' },
   { key: 'work'     as const, href: '#work'     },
@@ -14,6 +19,7 @@ const NAV_LINKS = [
 export function Footer() {
   const tn = useTranslations('nav');
   const tf = useTranslations('footer');
+  const tl = useTranslations('footer.legal');
 
   return (
     <footer
@@ -64,6 +70,19 @@ export function Footer() {
               >
                 {tn(key)}
               </a>
+            ))}
+          </nav>
+
+          {/* ── Legal links ── */}
+          <nav className="flex flex-wrap gap-x-6 gap-y-2">
+            {LEGAL_LINKS.map(({ key, href }) => (
+              <Link
+                key={key}
+                href={href}
+                className="text-xs text-text-muted hover:text-text transition-colors duration-250"
+              >
+                {tl(key)}
+              </Link>
             ))}
           </nav>
 

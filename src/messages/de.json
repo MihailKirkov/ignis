@@ -58,7 +58,50 @@
     "filterLanding": "Landingpages",
     "filterBusiness": "Unternehmenswebseiten",
     "filterApp": "Webanwendungen",
-    "viewProject": "Projekt Ansehen"
+    "viewProject": "Projekt Ansehen",
+    "modal": {
+      "challenge": "TODO",
+      "solution": "TODO",
+      "results": "TODO",
+      "builtWith": "TODO",
+      "viewLiveSite": "TODO",
+      "startProject": "TODO",
+      "close": "TODO"
+    },
+    "category": {
+      "landing": "TODO",
+      "business": "TODO",
+      "webapp": "TODO"
+    },
+    "projects": {
+      "kaboom-bg": {
+        "title": "TODO",
+        "description": "TODO",
+        "challenge": "TODO",
+        "solution": "TODO",
+        "results": ["TODO"],
+        "duration": "TODO",
+        "role": "TODO"
+      },
+      "lead-hq": {
+        "title": "TODO",
+        "description": "TODO",
+        "challenge": "TODO",
+        "solution": "TODO",
+        "results": ["TODO"],
+        "duration": "TODO",
+        "role": "TODO"
+      },
+      "the-sharp-cut": {
+        "title": "TODO",
+        "description": "TODO",
+        "challenge": "TODO",
+        "solution": "TODO",
+        "results": ["TODO"],
+        "duration": "TODO",
+        "role": "TODO"
+      }
+    }
   },
   "process": {
     "badge": "Wie Wir Arbeiten",
@@ -140,7 +183,12 @@
   "footer": {
     "tagline": "Digitales Feuer entfachen seit 2020.",
     "copyright": "© 2025 Ignis Web Studio. Alle Rechte vorbehalten.",
-    "madeBy": "Entwickelt von Ignis"
+    "madeBy": "Entwickelt von Ignis",
+    "legal": {
+      "privacyPolicy": "Datenschutzerklärung",
+      "termsOfService": "Allgemeine Geschäftsbedingungen",
+      "imprint": "Impressum"
+    }
   },
   "modal": {
     "title1": "Was möchten Sie bauen?",

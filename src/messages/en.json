@@ -58,7 +58,50 @@
     "filterLanding": "Landing Pages",
     "filterBusiness": "Business Websites",
     "filterApp": "Web Apps",
-    "viewProject": "View Project"
+    "viewProject": "View Project",
+    "modal": {
+      "challenge": "Challenge",
+      "solution": "Solution",
+      "results": "Results",
+      "builtWith": "Built with",
+      "viewLiveSite": "View Live Site",
+      "startProject": "Start a Project",
+      "close": "Close case study"
+    },
+    "category": {
+      "landing": "Landing Page",
+      "business": "Business Site",
+      "webapp": "Web App"
+    },
+    "projects": {
+      "kaboom-bg": {
+        "title": "Kaboom.bg",
+        "description": "Dynamic landing page for an agency, featuring interactive elements and a bold, modern custom design.",
+        "challenge": "TODO",
+        "solution": "TODO",
+        "results": ["TODO"],
+        "duration": "TODO",
+        "role": "TODO"
+      },
+      "lead-hq": {
+        "title": "Lead HQ",
+        "description": "Real-time dashboard for sales teams to track and manage leads, with integrated AI Agent lead scraper, custom analytics and team collaboration features.",
+        "challenge": "TODO",
+        "solution": "TODO",
+        "results": ["TODO"],
+        "duration": "TODO",
+        "role": "TODO"
+      },
+      "the-sharp-cut": {
+        "title": "The Sharp Cut",
+        "description": "Luxury barber shop website with sleek design, online booking, and a gallery showcasing their premium services.",
+        "challenge": "TODO",
+        "solution": "TODO",
+        "results": ["TODO"],
+        "duration": "TODO",
+        "role": "TODO"
+      }
+    }
   },
   "process": {
     "badge": "How We Work",
@@ -140,7 +183,12 @@
   "footer": {
     "tagline": "Crafting digital fire since 2020.",
     "copyright": "© 2025 Ignis Web Studio. All rights reserved.",
-    "madeBy": "Crafted by Ignis"
+    "madeBy": "Crafted by Ignis",
+    "legal": {
+      "privacyPolicy": "Privacy Policy",
+      "termsOfService": "Terms of Service",
+      "imprint": "Imprint"
+    }
   },
   "modal": {
     "title1": "What are you looking to build?",
