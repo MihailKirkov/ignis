@@ -1,5 +1,5 @@
 export const termsOfServiceEn = `
-# Terms and Conditions
+# Terms of Service
 
 *Last updated: April 27, 2026*
 
@@ -188,7 +188,8 @@ We reserve the right, but not the obligation, to: (1) monitor the Services for v
 
 ## 9. PRIVACY POLICY
 
-We care about data privacy and security. Please review our Privacy Policy: [https://www.ignis-mls.com/en/privacy-policy](https://www.ignis-mls.com/en/privacy-policy). By using the Services, you agree to be bound by our Privacy Policy, which is incorporated into these Legal Terms. Please be advised the Services are hosted in Germany. If you access the Services from any other region of the world with laws or other requirements governing personal data collection, use, or disclosure that differ from applicable laws in Germany, then through your continued use of the Services, you are transferring your data to Germany, and you expressly consent to have your data transferred to and processed in Germany.
+We care about data privacy and security. Please review our Privacy 
+   Policy: https://www.ignis-mls.com/en/privacy-policy. By using the Services, you agree to be bound by our Privacy Policy, which is incorporated into these Legal Terms. Our website infrastructure is hosted in Germany; however, certain service providers we use to operate the Services (including for contact form processing and email hosting) may store and process data in the United States and other regions. International data transfers are governed by Standard Contractual Clauses and other safeguards as described in our Privacy Policy. If you access the Services from a region with data protection laws different from those of the regions where our service providers operate, you consent to the transfer of your data to and processing in those regions.
 
 ---
 
