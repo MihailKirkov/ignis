@@ -6,6 +6,8 @@ import { Link } from '@/i18n/navigation';
 const LEGAL_LINKS = [
   { key: 'privacyPolicy' as const, href: '/privacy-policy' },
   { key: 'termsOfService' as const, href: '/terms-of-service' },
+  { key: 'cookiePolicy' as const, href: '/cookie-policy' },
+  { key: 'imprint' as const, href: '/imprint' },
 ] as const;
 
 const NAV_LINKS = [
