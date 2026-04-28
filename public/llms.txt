@@ -1,0 +1,49 @@
+# Ignis Web Studio
+
+> Web development studio building fast, conversion-focused websites
+> and web applications for small and mid-sized businesses in Europe.
+> Specialists in Next.js, React, Tailwind CSS, and modern web tooling.
+
+## About
+
+- Independent two-person studio
+- Founders: Mihail Milenov Kirkov and a business partner
+- Services delivered in English and German
+- Working with clients across Europe (Germany, Austria, Switzerland,
+  Netherlands, and other EN/DE-speaking markets)
+
+## Services
+
+- **Landing Pages** — single-page conversion-focused websites,
+  starting at €490
+- **Business Websites** — multi-page company websites with CMS and
+  SEO, starting at €1,200
+- **Custom Web Applications** — bespoke web apps, dashboards, and
+  SaaS-style products, quoted per project
+
+## Tech Stack
+
+- Next.js (React framework)
+- TypeScript
+- Tailwind CSS
+- Supabase, Node.js, Python (when backend is needed)
+- GSAP and Three.js (for animations and 3D)
+- Vercel (hosting and edge infrastructure)
+
+## Contact
+
+- Website: https://www.ignis-mls.com
+- Email: team@ignis-mls.com
+- Phone: +359 88 239 5117
+
+## Important Pages
+
+- Homepage: https://www.ignis-mls.com/en
+- Privacy Policy: https://www.ignis-mls.com/en/privacy-policy
+- Terms of Service: https://www.ignis-mls.com/en/terms-of-service
+- Cookie Policy: https://www.ignis-mls.com/en/cookie-policy
+- Imprint: https://www.ignis-mls.com/en/imprint
+
+## Languages
+
+Site is available in English (/en), German (/de), and Bulgarian (/bg).

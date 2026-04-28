@@ -124,7 +124,7 @@
     "from": "Ab",
     "starter": {
       "name": "Starter",
-      "price": "€349",
+      "price": "€490",
       "description": "Perfekt für Einzelpersonen und kleine Unternehmen, die eine starke Online-Präsenz benötigen.",
       "feature1": "Einseitige Landingpage",
       "feature2": "Mobil responsiv",
@@ -157,6 +157,48 @@
       "feature6": "6-Monats-Support",
       "cta": "Sprechen Wir"
     }
+  },
+  "metadata": {
+    "home": {
+      "title": "Ignis Web Studio | Webentwicklung für europäische KMU",
+      "description": "Wir gestalten und entwickeln schnelle, conversion-orientierte Websites und Web-Apps für kleine und mittelständische Unternehmen in Europa. Spezialisten für Next.js, React und moderne Web-Technologien.",
+      "keywords": "Webentwicklung, Webentwickler, Next.js Entwickler, React Entwickler, Landingpage, Unternehmenswebsite, Webanwendung, Webagentur, freiberuflicher Webentwickler",
+      "ogTitle": "Ignis Web Studio — Webentwicklung für europäische KMU",
+      "ogDescription": "Schnelle, conversion-orientierte Websites und Web-Apps. Entwickelt mit Next.js, React und modernen Tools. Für Unternehmen, die auf Qualität setzen."
+    }
+  },
+  "faq": {
+    "badge": "FAQ",
+    "heading": "Häufig gestellte Fragen",
+    "subheading": "Schnelle Antworten auf Fragen, die wir häufig hören. Wenn Ihre Frage nicht dabei ist, fragen Sie einfach.",
+    "ctaText": "Haben Sie eine Frage, die hier nicht beantwortet wird?",
+    "ctaLink": "Schreiben Sie uns",
+    "items": [
+      {
+        "question": "Was kostet eine Website bei Ignis Web Studio?",
+        "answer": "Unsere Preise richten sich nach dem Umfang und der Komplexität des Projekts. Landingpages beginnen ab 490 €, Unternehmenswebseiten ab 1.200 €, und individuelle Webanwendungen werden projektbasiert kalkuliert. Nach einem ersten Gespräch zur Klärung Ihrer Ziele erstellen wir Ihnen ein detailliertes Angebot. Wir konkurrieren nicht über den Preis — wir konzentrieren uns darauf, hochwertige, schnelle und conversion-orientierte Arbeit für Kunden zu liefern, denen Qualität wichtig ist."
+      },
+      {
+        "question": "Wie lange dauert die Entwicklung einer Website?",
+        "answer": "Eine Landingpage dauert in der Regel eine Woche vom Projektstart bis zum Launch. Eine mehrseitige Unternehmenswebseite benötigt 2–3 Wochen. Individuelle Webanwendungen dauern je nach Umfang 4–12 Wochen. Wir arbeiten in klaren Meilensteinen und liefern regelmäßige Updates, damit Sie jederzeit den Überblick behalten. Zeitpläne werden vorab vereinbart und hängen davon ab, wie schnell wir Inhalte, Feedback und Freigaben von Ihrem Team erhalten."
+      },
+      {
+        "question": "Welche Technologien setzen Sie ein?",
+        "answer": "Wir entwickeln moderne, schnelle und zugängliche Webseiten mit Next.js (React-Framework), Tailwind CSS für das Styling, TypeScript für Zuverlässigkeit sowie Supabase oder Node.js für Backend-Funktionen, wenn diese benötigt werden. Für Animationen und 3D verwenden wir GSAP und Three.js. Websites werden auf Vercel für globale Performance deployed. Wir wählen Technologien danach aus, was Ihrem Projekt am besten dient — nicht weil sie gerade im Trend liegen."
+      },
+      {
+        "question": "Arbeiten Sie auch mit internationalen Kunden zusammen?",
+        "answer": "Ja. Wir arbeiten mit Kunden in ganz Europa und in englisch- und deutschsprachigen Märkten. Die gesamte Kommunikation findet auf Englisch oder Deutsch statt. Projektmeetings finden per Videoanruf statt, und wir nutzen klare schriftliche Briefings und asynchrone Updates, damit Zeitzonenunterschiede den Ablauf nicht verzögern."
+      },
+      {
+        "question": "Gehört die Website nach der Fertigstellung mir?",
+        "answer": "Ja. Nach vollständiger Bezahlung sind Sie Eigentümer aller finalen Ergebnisse — des Codes, der Designs und der Inhalte, die wir für Sie erstellt haben. Wir behalten uns das Recht vor, die fertige Arbeit in unserem Portfolio und unseren Case Studies zu zeigen, sofern Sie dies nicht ausdrücklich schriftlich vor Projektbeginn ablehnen. Hosting, Domain und sämtliche Drittanbieterdienste verbleiben in Ihrem Namen und unter Ihrer Kontrolle."
+      },
+      {
+        "question": "Was passiert, wenn ich nach dem Launch Änderungen benötige?",
+        "answer": "Jedes Projekt beinhaltet eine definierte Revisionsphase während der Entwicklung. Nach dem Launch bieten wir laufenden Support auf Projektbasis an — Content-Updates, kleinere Funktionen und Verbesserungen werden nach Bedarf kalkuliert. Für umfangreichere Änderungen oder neue Funktionen erstellen wir Ihnen projektbasierte Angebote. Für Kunden, die Inhalte selbst verwalten möchten, können wir auch entsprechende Lösungen empfehlen."
+      }
+    ]
   },
   "testimonials": {
     "badge": "Kundenstimmen",
@@ -202,7 +244,7 @@
     "sending": "Wird gesendet…",
     "landingTitle": "Landingpage",
     "landingDesc": "Hochkonvertierende Einzelseite für Kampagnen, Produkte oder Launches",
-    "landingPrice": "Ab €349",
+    "landingPrice": "Ab €490",
     "businessTitle": "Business-Website",
     "businessDesc": "Mehrseitige Website mit CMS, Kontaktformularen und SEO",
     "businessPrice": "Ab €997",
@@ -212,7 +254,7 @@
     "descLabel": "Projektbeschreibung",
     "descPlaceholder": "Beschreiben Sie, was Sie bauen möchten, für wen es ist und welche Funktionen wichtig sind…",
     "budgetLabel": "Budgetrahmen",
-    "b500": "€349 – €1.000",
+    "b500": "€490 – €1.000",
     "b1k": "€1.000 – €3.000",
     "b3k": "€3.000 – €5.000",
     "b8k": "€5.000+",
@@ -238,6 +280,10 @@
     "successSub": "Ihre Projektbeschreibung ist eingegangen. Wir antworten in der Regel innerhalb von 24 Stunden.",
     "bookCall": "Kostenloses Gespräch Buchen",
     "requiredFields": "Bitte füllen Sie alle Pflichtfelder aus.",
-    "invalidEmail": "Bitte geben Sie eine gültige E-Mail-Adresse ein."
+    "invalidEmail": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+    "consent": {
+      "agreement": "Ich habe die <link>Datenschutzerklärung</link> gelesen und stimme ihr zu.",
+      "errorRequired": "Sie müssen der Datenschutzerklärung zustimmen, um das Formular zu senden."
+    }
   }
 }

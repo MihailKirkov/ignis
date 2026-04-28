@@ -9,6 +9,7 @@ import {
   useLayoutEffect,
 } from 'react';
 import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
 import gsap from 'gsap';
 
 /* ─────────────────────────── Types ─────────────────────────────────── */
@@ -172,6 +173,8 @@ function Modal({
   const [step,          setStep]          = useState<1 | 2 | 3>(1);
   const [submitState,   setSubmitState]   = useState<SubmitState>('idle');
   const [validationErr, setValidationErr] = useState('');
+  const [consent,       setConsent]       = useState(false);
+  const [consentErr,    setConsentErr]    = useState(false);
 
   const prevStepRef = useRef<number>(1);
 
@@ -197,6 +200,8 @@ function Modal({
     });
     setSubmitState('idle');
     setValidationErr('');
+    setConsent(false);
+    setConsentErr(false);
     setRendered(true);
     document.body.style.overflow = 'hidden';
   }, [isOpen, initService]);
@@ -299,18 +304,24 @@ function Modal({
 
   /* ── Submit ── */
   async function handleSubmit() {
+    if (!consent) {
+      setConsentErr(true);
+      return;
+    }
+    setConsentErr(false);
     setSubmitState('submitting');
     try {
       const res = await fetch('/api/contact', {
         method:  'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          service:     form.service,
-          description: form.description,
-          budget:      form.budget,
-          timeline:    form.timeline,
-          name:        form.name,
-          email:       form.email,
+          service:          form.service,
+          description:      form.description,
+          budget:           form.budget,
+          timeline:         form.timeline,
+          name:             form.name,
+          email:            form.email,
+          privacy_consent:  'I have read and agree to the Privacy Policy',
           ...(form.company ? { company: form.company } : {}),
         }),
       });
@@ -653,6 +664,41 @@ function Modal({
                   ))}
                 </div>
 
+                {/* Consent checkbox */}
+                <div className="flex items-start gap-3 mt-5">
+                  <input
+                    type="checkbox"
+                    id="privacy-consent"
+                    checked={consent}
+                    onChange={(e) => {
+                      setConsent(e.target.checked);
+                      if (e.target.checked) setConsentErr(false);
+                    }}
+                    className="mt-1 h-4 w-4 cursor-pointer flex-shrink-0"
+                    style={{ accentColor: '#ff6b2c' }}
+                  />
+                  <label
+                    htmlFor="privacy-consent"
+                    className="text-sm text-text-secondary leading-relaxed cursor-pointer select-none"
+                  >
+                    {t.rich('consent.agreement', {
+                      link: (chunks) => (
+                        <Link
+                          href="/privacy-policy"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-ignis hover:text-ignis-dim underline underline-offset-2 transition-colors"
+                        >
+                          {chunks}
+                        </Link>
+                      ),
+                    })}
+                  </label>
+                </div>
+                {consentErr && (
+                  <p className="text-xs text-red-400 mt-2">{t('consent.errorRequired')}</p>
+                )}
+
                 {submitState === 'error' && (
                   <p className="text-xs text-red-400 mt-3">
                     Something went wrong. Please try again.
@@ -704,7 +750,7 @@ function Modal({
           {!showSuccess && step === 3 && (
             <button
               onClick={handleSubmit}
-              disabled={submitState === 'submitting'}
+              disabled={submitState === 'submitting' || !consent}
               className="px-5 py-2.5 rounded-xl text-sm font-semibold text-white transition-opacity duration-200 cursor-pointer hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
               style={{ background: 'linear-gradient(135deg, #ff6b2c, #ffb347)' }}
             >

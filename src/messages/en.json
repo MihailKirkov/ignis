@@ -124,7 +124,7 @@
     "from": "From",
     "starter": {
       "name": "Starter",
-      "price": "€349",
+      "price": "€490",
       "description": "Perfect for individuals and small businesses needing a strong online presence.",
       "feature1": "Single-page landing site",
       "feature2": "Mobile responsive",
@@ -157,6 +157,48 @@
       "feature6": "6-month support",
       "cta": "Let's Talk"
     }
+  },
+  "metadata": {
+    "home": {
+      "title": "Ignis Web Studio | Web Development for European SMBs",
+      "description": "We design and build fast, conversion-focused websites and web apps for small and mid-sized businesses in Europe. Specialists in Next.js, React, and modern web tech.",
+      "keywords": "web development, web developer, Next.js developer, React developer, landing page, business website, web application, web agency, freelance web developer, European web developer",
+      "ogTitle": "Ignis Web Studio — Web Development for European SMBs",
+      "ogDescription": "Fast, conversion-focused websites and web apps. Built with Next.js, React, and modern tooling. For businesses that care about quality."
+    }
+  },
+  "faq": {
+    "badge": "FAQ",
+    "heading": "Frequently asked questions",
+    "subheading": "Quick answers to questions we hear often. If yours isn't here, just ask.",
+    "ctaText": "Have a question that's not answered here?",
+    "ctaLink": "Get in touch",
+    "items": [
+      {
+        "question": "How much does a website from Ignis Web Studio cost?",
+        "answer": "Our pricing depends on the scope and complexity of the project. Landing pages start at €490, business websites start at €1,200, and custom web applications are quoted per project based on requirements. We provide a detailed proposal after an initial call to understand your goals. We don't compete on lowest price — we focus on delivering high-quality, fast, conversion-focused work for clients who care about quality."
+      },
+      {
+        "question": "How long does it take to build a website?",
+        "answer": "A landing page typically takes 1 week from kickoff to launch. A business website with multiple pages takes 2-3 weeks. Custom web applications take 4-12 weeks depending on scope. We work in clear milestones and provide regular updates so you always know where the project stands. Timelines are agreed upfront and depend on how quickly we receive content, feedback, and approvals from your team."
+      },
+      {
+        "question": "What technology do you use?",
+        "answer": "We build modern, fast, accessible websites using Next.js (React framework), Tailwind CSS for styling, TypeScript for reliability, and Supabase or Node.js for backend functionality when needed. For animations and 3D, we use GSAP and Three.js. Sites are deployed on Vercel for global performance. We choose technology based on what serves your project best — not because it's trendy."
+      },
+      {
+        "question": "Do you work with international clients?",
+        "answer": "Yes. We work with clients across Europe and English- and German-speaking markets. All communication is in English or German. Project meetings happen over video call, and we use clear written briefs and async updates so timezone differences don't slow things down."
+      },
+      {
+        "question": "Do I own the website after it's built?",
+        "answer": "Yes. Upon full payment, you own all the final deliverables — the code, designs, and content we create for you. We retain the right to display the completed work in our portfolio and case studies, unless you specifically request otherwise in writing before the project starts. Hosting, domain, and any third-party services remain in your name and under your control."
+      },
+      {
+        "question": "What happens if I need changes after launch?",
+        "answer": "Every project includes a defined revision period during the build. After launch, we offer ongoing support on a project basis — content updates, small features, and improvements are quoted as needed. For larger changes or new features, we provide proposals on a per-project basis. We can also recommend solutions for clients who want to manage content themselves."
+      }
+    ]
   },
   "testimonials": {
     "badge": "Client Stories",
@@ -202,7 +244,7 @@
     "sending": "Sending…",
     "landingTitle": "Landing Page",
     "landingDesc": "High-converting single page for campaigns, products, or launches",
-    "landingPrice": "From €349",
+    "landingPrice": "From €490",
     "businessTitle": "Business Website",
     "businessDesc": "Full multi-page site with CMS, contact forms, and SEO",
     "businessPrice": "From €997",
@@ -212,7 +254,7 @@
     "descLabel": "Project description",
     "descPlaceholder": "Tell us what you want to build, who it's for, and any key features…",
     "budgetLabel": "Budget range",
-    "b500": "€349 – €1,000",
+    "b500": "€490 – €1,000",
     "b1k": "€1,000 – €3,000",
     "b3k": "€3,000 – €5,000",
     "b8k": "€5,000+",
@@ -238,6 +280,10 @@
     "successSub": "Your project brief has been received. We typically respond within 24 hours.",
     "bookCall": "Book a Free Call",
     "requiredFields": "Please complete all required fields.",
-    "invalidEmail": "Please enter a valid email address."
+    "invalidEmail": "Please enter a valid email address.",
+    "consent": {
+      "agreement": "I have read and agree to the <link>Privacy Policy</link>.",
+      "errorRequired": "You must agree to the Privacy Policy to submit this form."
+    }
   }
 }
