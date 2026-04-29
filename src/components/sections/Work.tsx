@@ -23,8 +23,9 @@ const PROJECTS: Project[] = [
     caseStudy: {
       hero: '/images/work/kaboom-bg/hero.png',
       gallery: [
-        '/images/work/kaboom/gallery-1.webp',
-        '/images/work/kaboom/gallery-2.webp',
+        '/images/work/kaboom-bg/gallery-1.webp',
+        '/images/work/kaboom-bg/gallery-2.webp',
+        '/images/work/kaboom-bg/gallery-3.webp',
       ],
       challengeKey: 'projects.kaboom-bg.challenge',
       solutionKey: 'projects.kaboom-bg.solution',
@@ -81,7 +82,7 @@ function ProjectCard({
   onOpen,
 }: {
   project: Project;
-  onOpen: (project: Project, trigger: HTMLButtonElement) => void;
+  onOpen: (project: Project, trigger: HTMLElement) => void;
 }) {
   const t = useTranslations('work') as (key: string) => string;
 
@@ -93,6 +94,13 @@ function ProjectCard({
         height: '300px',
         border: '1px solid rgba(255,255,255,0.06)',
         boxShadow: '0 4px 30px rgba(0,0,0,0.5)',
+      }}
+      onClick={(e) => {
+        if (project.caseStudy) {
+          onOpen(project, e.currentTarget);
+        } else if (project.projectUrl) {
+          window.open(project.projectUrl, '_blank');
+        }
       }}
     >
       {/* Screenshot */}
@@ -148,13 +156,7 @@ function ProjectCard({
             background: `${project.accent}55`,
             border: `1px solid ${project.accent}80`,
           }}
-          onClick={(e) => {
-            if (project.caseStudy) {
-              onOpen(project, e.currentTarget as HTMLButtonElement);
-            } else if (project.projectUrl) {
-              window.open(project.projectUrl, '_blank');
-            }
-          }}
+          tabIndex={-1}
         >
           {t('viewProject')}
           <svg
@@ -243,7 +245,7 @@ export default function Work() {
   const entranceDoneRef = useRef(false);
 
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [triggerElement, setTriggerElement] = useState<HTMLButtonElement | null>(null);
+  const [triggerElement, setTriggerElement] = useState<HTMLElement | null>(null);
 
   const FILTERS = [
     { key: 'all', label: t('filterAll') },

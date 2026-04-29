@@ -10,7 +10,7 @@ import type { Project } from './types';
 interface ProjectModalProps {
   project: Project | null;
   onClose: () => void;
-  triggerElement?: HTMLButtonElement | null;
+  triggerElement?: HTMLElement | null;
 }
 
 export function ProjectModal({ project, onClose, triggerElement }: ProjectModalProps) {
