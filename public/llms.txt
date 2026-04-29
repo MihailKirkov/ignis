@@ -17,7 +17,7 @@
 - **Landing Pages** — single-page conversion-focused websites,
   starting at €490
 - **Business Websites** — multi-page company websites with CMS and
-  SEO, starting at €1,200
+  SEO, starting at €997
 - **Custom Web Applications** — bespoke web apps, dashboards, and
   SaaS-style products, quoted per project
 

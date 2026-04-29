@@ -24,4 +24,4 @@
 - [ ] Translate Privacy Policy, Terms of Service, Cookie Policy to BG and DE
 - [ ] Set up VoIP business phone number (optional)
 - [x] Add real screenshots to portfolio projects (replace mockup placeholders)
-- [x] Reposition pricing display on the site to match FAQ pricing (€490 / €1,200 / quoted) — currently shows €490
+- [x] Reposition pricing display on the site to match FAQ pricing (€490 / €997 / quoted) — currently shows €490
