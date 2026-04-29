@@ -60,46 +60,46 @@
     "filterApp": "Webanwendungen",
     "viewProject": "Projekt Ansehen",
     "modal": {
-      "challenge": "TODO",
-      "solution": "TODO",
-      "results": "TODO",
-      "builtWith": "TODO",
-      "viewLiveSite": "TODO",
-      "startProject": "TODO",
-      "close": "TODO"
+      "challenge": "Herausforderung",
+      "solution": "Lösung",
+      "results": "Ergebnisse",
+      "builtWith": "Entwickelt mit",
+      "viewLiveSite": "Live-Website Ansehen",
+      "startProject": "Projekt Starten",
+      "close": "Fallstudie schließen"
     },
     "category": {
-      "landing": "TODO",
-      "business": "TODO",
-      "webapp": "TODO"
+      "landing": "Landingpage",
+      "business": "Unternehmenswebsite",
+      "webapp": "Webanwendung"
     },
     "projects": {
       "kaboom-bg": {
-        "title": "TODO",
-        "description": "TODO",
-        "challenge": "TODO",
-        "solution": "TODO",
-        "results": ["TODO"],
-        "duration": "TODO",
-        "role": "TODO"
+        "title": "Kaboom.bg",
+        "description": "Dynamische Landingpage für eine Agentur mit interaktiven Elementen und einem mutigen, modernen Custom-Design.",
+        "challenge": "Kaboom brauchte eine Landingpage, die sich auf dem gesättigten bulgarischen Digital-Agentur-Markt abhebt — etwas, das sofort Kompetenz kommuniziert und Anfragen ohne Reibung einfängt.",
+        "solution": "Wir haben eine animationsgetriebene Landingpage mit GSAP-Scroll-Effekten, einem mutigen Custom-Hero und einem optimierten Anfrage-Formular entwickelt — ausgerichtet auf Geschwindigkeit und sofortige Wirkung.",
+        "results": ["In unter 1 Woche geliefert", "Unter 1,5 Sekunden Ladezeit auf Mobilgeräten", "Über 90% Formular-Abschlussrate"],
+        "duration": "1 Woche",
+        "role": "Design & Entwicklung"
       },
       "lead-hq": {
-        "title": "TODO",
-        "description": "TODO",
-        "challenge": "TODO",
-        "solution": "TODO",
-        "results": ["TODO"],
-        "duration": "TODO",
-        "role": "TODO"
+        "title": "Lead HQ",
+        "description": "Echtzeit-Dashboard für Vertriebsteams zur Verwaltung von Leads, mit integriertem KI-Lead-Scraper, individuellem Analytics und Team-Kollaborationsfunktionen.",
+        "challenge": "Das Vertriebsteam des Kunden verwaltete Leads über Tabellen und unverbundene Tools — was zu verpassten Follow-ups, doppelter Arbeit und fehlender Pipeline-Übersicht führte.",
+        "solution": "Wir haben ein Full-Stack-SaaS-Dashboard mit Echtzeit-Lead-Tracking, einem KI-betriebenen Scraper zur automatischen Interessentensuche und Team-Kollaborationsfunktionen entwickelt — unterstützt von Supabase und einem Python-KI-Agenten.",
+        "results": ["Lead-Management-Zeit um 60% reduziert", "KI-Scraper identifiziert täglich 200+ neue Interessenten", "Vollständige Pipeline-Übersicht in einem Dashboard"],
+        "duration": "6 Wochen",
+        "role": "Full-Stack-Entwicklung & KI-Integration"
       },
       "the-sharp-cut": {
-        "title": "TODO",
-        "description": "TODO",
-        "challenge": "TODO",
-        "solution": "TODO",
-        "results": ["TODO"],
-        "duration": "TODO",
-        "role": "TODO"
+        "title": "The Sharp Cut",
+        "description": "Luxus-Barbershop-Website mit elegantem Design, Online-Buchungssystem und einer Galerie der Premium-Dienstleistungen.",
+        "challenge": "The Sharp Cut hatte keine digitale Präsenz und war ausschließlich auf Mundpropaganda angewiesen. Sie benötigten eine Premium-Website, die die Qualität ihrer Arbeit widerspiegelt und Besucher in Buchungen umwandelt.",
+        "solution": "Wir haben eine mehrseitige Unternehmenswebsite mit dunkler Luxus-Ästhetik, integriertem Online-Buchungssystem und einer kuratierten Dienstleistungsgalerie entwickelt — optimiert für lokale Suchanfragen und schnelle Ladezeiten.",
+        "results": ["Buchungen im ersten Monat um 40% gestiegen", "Top-3-Google-Ranking für lokale Barbershop-Suchanfragen", "Durchschnittliche Sitzungsdauer von 2m 45s"],
+        "duration": "2 Wochen",
+        "role": "Design & Entwicklung"
       }
     }
   },

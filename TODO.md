@@ -19,8 +19,8 @@
 
 ## Pending
 
-- [ ] Submit sitemap to Google Search Console
-- [ ] Submit sitemap to Bing Webmaster Tools
+- [x] Submit sitemap to Google Search Console
+- [x] Submit sitemap to Bing Webmaster Tools
 - [ ] Translate Privacy Policy, Terms of Service, Cookie Policy to BG and DE
 - [ ] Set up VoIP business phone number (optional)
 - [x] Add real screenshots to portfolio projects (replace mockup placeholders)
