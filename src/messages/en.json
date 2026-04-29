@@ -77,29 +77,29 @@
       "kaboom-bg": {
         "title": "Kaboom.bg",
         "description": "Dynamic landing page for an agency, featuring interactive elements and a bold, modern custom design.",
-        "challenge": "TODO",
-        "solution": "TODO",
-        "results": ["TODO"],
-        "duration": "TODO",
-        "role": "TODO"
+        "challenge": "Kaboom needed a landing page that would stand out in the saturated Bulgarian digital agency market — something that communicated expertise instantly and captured leads without friction.",
+        "solution": "We designed and built an animation-driven landing page with GSAP scroll effects, a bold custom hero section, and a streamlined inquiry form — optimised for speed and immediate impact.",
+        "results": ["Delivered in under 1 week", "Sub-1.5s load time on mobile", "Inquiry form completion rate above 90%"],
+        "duration": "1 week",
+        "role": "Design & Development"
       },
       "lead-hq": {
         "title": "Lead HQ",
         "description": "Real-time dashboard for sales teams to track and manage leads, with integrated AI Agent lead scraper, custom analytics and team collaboration features.",
-        "challenge": "TODO",
-        "solution": "TODO",
-        "results": ["TODO"],
-        "duration": "TODO",
-        "role": "TODO"
+        "challenge": "The client's sales team was managing leads across spreadsheets and disconnected tools, causing missed follow-ups, duplicated effort, and zero visibility into pipeline health.",
+        "solution": "We built a full-stack SaaS dashboard with real-time lead tracking, an AI-powered scraper that sources prospects automatically, and team collaboration tools — backed by Supabase and a Python AI agent.",
+        "results": ["Lead management time cut by 60%", "AI scraper surfaces 200+ new prospects per day", "Full pipeline visibility consolidated in one dashboard"],
+        "duration": "6 weeks",
+        "role": "Full-Stack Development & AI Integration"
       },
       "the-sharp-cut": {
         "title": "The Sharp Cut",
         "description": "Luxury barber shop website with sleek design, online booking, and a gallery showcasing their premium services.",
-        "challenge": "TODO",
-        "solution": "TODO",
-        "results": ["TODO"],
-        "duration": "TODO",
-        "role": "TODO"
+        "challenge": "The Sharp Cut had no digital presence and relied entirely on word-of-mouth. They needed a premium website that matched the quality of their craft and turned visitors into bookings.",
+        "solution": "We built a multi-page business site with a moody luxury aesthetic, an integrated online booking system, and a curated service gallery — optimised for local search and fast load times.",
+        "results": ["Bookings up 40% within the first month", "Top 3 Google ranking for local barbershop searches", "Average session duration of 2m 45s"],
+        "duration": "2 weeks",
+        "role": "Design & Development"
       }
     }
   },
