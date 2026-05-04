@@ -4,9 +4,7 @@ import { useEffect, useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import { useProjectModal } from '@/components/ui/ProjectModal';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
+import { ensureGsapPlugins } from '@/lib/gsap-setup';
 
 const TECH_STACK = [
   {
@@ -120,6 +118,7 @@ export function Hero() {
   const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    ensureGsapPlugins();
     const content = contentRef.current;
     if (!content) return;
 

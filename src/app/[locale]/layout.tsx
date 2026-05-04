@@ -3,7 +3,6 @@ import { Geist, Geist_Mono, Space_Grotesk, Onest } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
-import ClientProviders from '@/components/ClientProviders';
 import '../globals.css';
 
 const geistSans = Geist({
@@ -19,13 +18,13 @@ const geistMono = Geist_Mono({
 const spaceGrotesk = Space_Grotesk({
   variable: '--font-space-grotesk',
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
+  weight: ['500', '600', '700'],
 });
 
 const onest = Onest({
   variable: '--font-onest',
   subsets: ['latin', 'cyrillic'],
-  weight: ['300', '400', '500', '600', '700'],
+  weight: ['500', '600', '700'],
 });
 
 export function generateStaticParams() {
@@ -58,9 +57,7 @@ export default async function LocaleLayout({
     >
       <body className="bg-bg text-text antialiased overflow-x-hidden">
         <NextIntlClientProvider messages={messages} locale={locale}>
-          <ClientProviders>
-            {children}
-          </ClientProviders>
+          {children}
         </NextIntlClientProvider>
       </body>
     </html>

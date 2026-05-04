@@ -4,9 +4,7 @@ import { useEffect, useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import { useProjectModal } from '@/components/ui/ProjectModal';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
+import { ensureGsapPlugins } from '@/lib/gsap-setup';
 
 /* ──────────────────────── Social icons ────────────────────────── */
 
@@ -46,6 +44,7 @@ export function Contact() {
   const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    ensureGsapPlugins();
     const ctx = gsap.context(() => {
 
       /* Ambient orb pulses — looping, no ScrollTrigger */

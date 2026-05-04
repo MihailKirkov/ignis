@@ -25,3 +25,41 @@
 - [ ] Set up VoIP business phone number (optional)
 - [x] Add real screenshots to portfolio projects (replace mockup placeholders)
 - [x] Reposition pricing display on the site to match FAQ pricing (€490 / €997 / quoted) — currently shows €490
+- [x] Lazy-load below-the-fold sections via dynamic import
+- [x] Lazy-load vanilla-tilt
+- [x] Scope ProjectModal to homepage only
+- [x] Optimize font loading (audit and trim unused weights and families)
+
+---
+
+## Stack Conventions Compliance — ignis-mls
+
+Sourced from `CODEBASE_AUDIT.md` (snapshot 2026-05-01). See
+`STACK_CONVENTIONS.md` for the rules these are reconciling against.
+
+### Must fix before using as client template
+
+- [ ] Add `error.tsx`, `not-found.tsx`, `loading.tsx` at locale level
+- [ ] Add `prefers-reduced-motion` handling to all GSAP setups
+- [ ] Add rate limit + honeypot + Zod validation to `/api/contact`
+- [ ] Replace inline hex colors with CSS variables (sweep)
+- [ ] Add Prettier config + `.editorconfig`
+- [ ] Pin Node version (`.nvmrc` + `engines` field)
+- [ ] Centralize hreflang map — derive from `routing.locales` (page metadata + OG locale ternary + proxy matcher)
+- [ ] Localize imprint or apply consistent fallback notice across legal pages
+- [ ] Decide on cookie banner before adding any analytics
+- [ ] Add translation key parity check script
+- [ ] Resolve `proxy.ts` export style (`CLAUDE.md` says named, file is default)
+- [ ] Either localize `HomepageJsonLd` or drop the unused `locale` prop
+
+### Nice to have
+
+- [ ] Introduce `src/lib/` + `src/hooks/` + `src/constants/` structure
+- [ ] Replace boilerplate `README.md` with project-specific version that links to `STACK_CONVENTIONS.md`
+- [ ] Drop or restore Three.js (currently dead weight; `public/models/` empty)
+- [ ] Move `data-gsap` selector strings to typed constants
+- [ ] Drop `docs/` HTML duplicates of legal content
+- [ ] Decide named vs default export consistency (sweep)
+- [ ] Restore or remove the commented-out social-icons block in `Contact.tsx`
+- [ ] Add security headers via `next.config.ts` `headers()`
+- [ ] Revisit the `eslint-disable react-hooks/exhaustive-deps` in `ProjectModal.tsx:244`

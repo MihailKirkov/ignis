@@ -4,9 +4,7 @@ import { useEffect, useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import { useProjectModal, type ServiceKey } from '@/components/ui/ProjectModal';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
+import { ensureGsapPlugins } from '@/lib/gsap-setup';
 
 /* ──────────────────────── Checkmark icon ──────────────────────── */
 
@@ -49,6 +47,7 @@ export function Pricing() {
   const gridRef    = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    ensureGsapPlugins();
     const ctx = gsap.context(() => {
       const headingTrigger = { trigger: headingRef.current, start: 'top 86%', once: true };
 

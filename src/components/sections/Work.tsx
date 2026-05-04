@@ -4,11 +4,9 @@ import { useEffect, useRef, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ensureGsapPlugins } from '@/lib/gsap-setup';
 import type { Project } from './work/types';
 import { ProjectModal } from './work/ProjectModal';
-
-gsap.registerPlugin(ScrollTrigger);
 
 /* ────────────────────────── Project data ──────────────────────────── */
 
@@ -256,6 +254,7 @@ export default function Work() {
 
   /* ── Entrance animations ── */
   useEffect(() => {
+    ensureGsapPlugins();
     const ctx = gsap.context(() => {
       const headingTrigger = { trigger: headingRef.current, start: 'top 86%', once: true };
       const gridTrigger = { trigger: gridRef.current, start: 'top 84%', once: true };
