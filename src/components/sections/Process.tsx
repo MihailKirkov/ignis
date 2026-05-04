@@ -4,8 +4,7 @@ import { useEffect, useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
+import { ensureGsapPlugins } from '@/lib/gsap-setup';
 
 /* ──────────────────────────── Icons ──────────────────────────────── */
 
@@ -92,6 +91,7 @@ export function Process() {
   ];
 
   useEffect(() => {
+    ensureGsapPlugins();
     const ctx = gsap.context(() => {
 
       /* ── Heading entrance ── */

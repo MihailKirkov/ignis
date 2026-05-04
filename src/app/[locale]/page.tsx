@@ -2,14 +2,10 @@ import type { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/sections/Hero';
-import Services from '@/components/sections/Services';
-import Work from '@/components/sections/Work';
-import { Process } from '@/components/sections/Process';
-import { Pricing } from '@/components/sections/Pricing';
-import { Contact } from '@/components/sections/Contact';
-import { FAQ } from '@/components/sections/FAQ';
+import { HomeSections } from '@/components/sections/HomeSections';
 import { Footer } from '@/components/Footer';
 import { HomepageJsonLd } from '@/components/seo/JsonLd';
+import { ProjectModalProvider } from '@/components/ui/ProjectModal';
 
 export async function generateMetadata({
   params,
@@ -80,19 +76,14 @@ export default async function HomePage({
   setRequestLocale(locale);
 
   return (
-    <>
+    <ProjectModalProvider>
       <HomepageJsonLd locale={locale} />
       <Navbar />
       <main>
         <Hero />
-        <Services />
-        <Work />
-        <Process />
-        <Pricing />
-        <FAQ />
-        <Contact />
+        <HomeSections />
       </main>
       <Footer />
-    </>
+    </ProjectModalProvider>
   );
 }

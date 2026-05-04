@@ -4,9 +4,7 @@ import { useEffect, useRef } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
+import { ensureGsapPlugins } from '@/lib/gsap-setup';
 
 interface LegalPageProps {
   content: string;
@@ -16,6 +14,7 @@ export function LegalPage({ content }: LegalPageProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    ensureGsapPlugins();
     const ctx = gsap.context(() => {
       gsap.from(containerRef.current, {
         opacity: 0,

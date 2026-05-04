@@ -10,7 +10,11 @@
       "Bash(curl -s http://localhost:3000/de)",
       "Bash(cat:*)",
       "Bash(npx tsc:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "PowerShell(npm install *)",
+      "PowerShell(npm run *)",
+      "Bash(npx next *)",
+      "PowerShell($env:ANALYZE='true'; npx next build --webpack 2>&1 | Select-Object -Last 100)"
     ]
   }
 }

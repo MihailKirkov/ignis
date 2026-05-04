@@ -3,10 +3,8 @@
 import { useEffect, useRef, useState, useCallback, type KeyboardEvent } from 'react';
 import { useTranslations } from 'next-intl';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ensureGsapPlugins } from '@/lib/gsap-setup';
 import { FaqJsonLd } from '@/components/seo/JsonLd';
-
-gsap.registerPlugin(ScrollTrigger);
 
 /* ─────────────────────────── Chevron icon ──────────────────────────── */
 
@@ -158,6 +156,7 @@ export function FAQ() {
   }, []);
 
   useEffect(() => {
+    ensureGsapPlugins();
     const ctx = gsap.context(() => {
       const headingTrigger = {
         trigger: headingRef.current,

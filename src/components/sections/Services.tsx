@@ -4,10 +4,7 @@ import { useEffect, useRef } from 'react';
 import { useProjectModal, type ServiceKey } from '@/components/ui/ProjectModal';
 import { useTranslations } from 'next-intl';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import VanillaTilt from 'vanilla-tilt';
-
-gsap.registerPlugin(ScrollTrigger);
+import { ensureGsapPlugins } from '@/lib/gsap-setup';
 
 /* ─────────────────────────────── Icons ─────────────────────────────── */
 
@@ -105,18 +102,24 @@ function ServiceCard({ icon, accentIndex, title, description, features, cta, onC
   useEffect(() => {
     const el = cardRef.current;
     if (!el) return;
+    let mounted = true;
 
-    VanillaTilt.init(el, {
-      max: 8,
-      speed: 600,
-      glare: true,
-      'max-glare': 0.08,
-      scale: 1.02,
-      perspective: 1000,
-      reset: true,
-    });
+    (async () => {
+      const VanillaTilt = (await import('vanilla-tilt')).default;
+      if (!mounted) return;
+      VanillaTilt.init(el, {
+        max: 8,
+        speed: 600,
+        glare: true,
+        'max-glare': 0.08,
+        scale: 1.02,
+        perspective: 1000,
+        reset: true,
+      });
+    })();
 
     return () => {
+      mounted = false;
       (el as HTMLElement & { vanillaTilt?: { destroy: () => void } }).vanillaTilt?.destroy();
     };
   }, []);
@@ -246,6 +249,7 @@ export default function Services() {
   const cardsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    ensureGsapPlugins();
     const ctx = gsap.context(() => {
       /* Heading reveal */
       gsap.fromTo(
