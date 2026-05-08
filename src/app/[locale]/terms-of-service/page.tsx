@@ -7,7 +7,7 @@ import { termsOfServiceEn } from '@/content/legal/terms-of-service.en';
 export const metadata: Metadata = {
   title: 'Terms of Service | Ignis Web Studio',
   description: 'The terms and conditions governing your use of Ignis Web Studio services.',
-  robots: 'noindex, follow',
+  robots: { index: false, follow: true },
 };
 
 export function generateStaticParams() {

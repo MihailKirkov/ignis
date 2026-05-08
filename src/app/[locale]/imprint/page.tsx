@@ -13,7 +13,7 @@ export async function generateMetadata({
   return {
     title: locale === 'de' ? 'Impressum | Ignis Web Studio' : 'Imprint | Ignis Web Studio',
     description: 'Legal information and contact details for Ignis Web Studio.',
-    robots: 'noindex, follow',
+    robots: { index: false, follow: true },
   };
 }
 

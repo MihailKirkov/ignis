@@ -29,7 +29,8 @@
       "feature2": "Unter 2s Ladezeit",
       "feature3": "A/B-Testing bereit",
       "feature4": "Analytics integriert",
-      "cta": "Landingpage Anfragen"
+      "cta": "Landingpage Anfragen",
+      "details": "Details ansehen"
     },
     "business": {
       "title": "Unternehmenswebseiten",
@@ -38,7 +39,8 @@
       "feature2": "SEO-Architektur",
       "feature3": "Mehrsprachige Unterstützung",
       "feature4": "Performance-first Entwicklung",
-      "cta": "Webseite Anfragen"
+      "cta": "Webseite Anfragen",
+      "details": "Details ansehen"
     },
     "webapp": {
       "title": "Webanwendungen",
@@ -47,7 +49,8 @@
       "feature2": "Authentifizierung & Autorisierung",
       "feature3": "Echtzeit-Funktionen",
       "feature4": "API-Integration",
-      "cta": "App Entwickeln"
+      "cta": "App Entwickeln",
+      "details": "Details ansehen"
     }
   },
   "work": {
@@ -284,6 +287,89 @@
     "consent": {
       "agreement": "Ich habe die <link>Datenschutzerklärung</link> gelesen und stimme ihr zu.",
       "errorRequired": "Sie müssen der Datenschutzerklärung zustimmen, um das Formular zu senden."
+    }
+  },
+  "servicesPage": {
+    "meta": {
+      "title": "Webentwicklung | Ignis-MLS",
+      "description": "Landing Pages, Business-Websites und Web-Apps mit Next.js. Schnelle Lieferung, individuelles Design, SEO inklusive."
+    },
+    "hero": {
+      "badge": "Was wir bauen",
+      "heading": "Leistungen & Preise",
+      "subheading": "Drei Pakete. Fester Umfang. Keine Überraschungen."
+    },
+    "landing": {
+      "badge": "Landing Page",
+      "headline": "Ihr Unternehmen — in 5 Tagen online.",
+      "description": "Eine fokussierte, conversion-starke Einzelseite, die Besucher in Leads verwandelt. Kein Overhead, keine Templates — individuell gestaltet und entwickelt für Ihr Unternehmen.",
+      "price": "€490 – €690",
+      "timeline": "5–7 Tage",
+      "included": "Was enthalten ist",
+      "features": [
+        "Individuelles Design — keine Templates",
+        "Mobile-first, vollständig responsiv",
+        "SEO-ready — Meta, Open Graph, Sitemap, Schema",
+        "Kontaktformular mit E-Mail-Zustellung",
+        "Performance-optimiert (Lighthouse ≥ 90)",
+        "DSGVO-konform — Cookie-Consent + Datenschutzseite",
+        "2 Korrekturschleifen",
+        "Übergabe mit Anleitung zur Inhaltsaktualisierung"
+      ],
+      "cta": "Projekt starten"
+    },
+    "business": {
+      "badge": "Business-Website",
+      "headline": "Eine Website, die so hart arbeitet wie Sie.",
+      "description": "Mehrseitige Website für Unternehmen, die mehr als eine Landing Page brauchen — Leistungen, Über uns, Portfolio, Kontakt. Gebaut für Glaubwürdigkeit, Sichtbarkeit und nachhaltiges Wachstum.",
+      "price": "€997 – €1,499",
+      "timeline": "1–2 Wochen",
+      "included": "Was enthalten ist",
+      "features": [
+        "Alles aus der Landing Page",
+        "Bis zu 6 Seiten — Start, Über uns, Leistungen, Portfolio, Kontakt",
+        "Mehrsprachige Unterstützung",
+        "Blog / News-Bereich (optional)",
+        "Google-indexiert, hreflang konfiguriert",
+        "JSON-LD strukturierte Daten",
+        "Erweiterte Kontaktformulare",
+        "3 Korrekturschleifen"
+      ],
+      "cta": "Projekt starten"
+    },
+    "webapp": {
+      "badge": "Web-App",
+      "headline": "Individuelle Software für Ihren Workflow.",
+      "description": "Wenn Standardlösungen nicht ausreichen. Wir konzipieren, gestalten und entwickeln Web-Applikationen nach Ihrem Prozess — Dashboards, Buchungssysteme, Kundenportale, interne Tools.",
+      "price": "Auf Anfrage",
+      "timeline": "Projektabhängig",
+      "included": "Was enthalten ist",
+      "features": [
+        "Kostenloses Anforderungs-Scoping",
+        "Individuelles UI/UX-Design",
+        "Full-Stack — Next.js + Supabase",
+        "Authentifizierung & Benutzerverwaltung",
+        "Datenbankdesign und API-Schicht",
+        "Deployment, CI und Umgebungs-Setup",
+        "Dokumentation und Übergabe",
+        "Support-Fenster nach dem Launch"
+      ],
+      "cta": "Projekt besprechen"
+    },
+    "addons": {
+      "badge": "Optionale Extras",
+      "heading": "Fügen Sie hinzu, was Sie brauchen. Lassen Sie den Rest weg.",
+      "items": [
+        { "name": "Domain-Registrierung", "detail": "Wir registrieren und konfigurieren Ihre Domain. Sie behalten das Eigentum." },
+        { "name": "Hosting-Setup", "detail": "Bereitgestellt auf Vercel. Schnell, skalierbar, kein Servermanagement." },
+        { "name": "Monatliche Wartung", "detail": "Updates, Fixes, Monitoring. Ab €79/Monat." },
+        { "name": "Analytics-Setup", "detail": "Datenschutzfreundliche Analysen. Kein Cookie-Banner erforderlich." }
+      ]
+    },
+    "finalCta": {
+      "heading": "Nicht sicher, was passt?",
+      "sub": "Sagen Sie uns, was Sie bauen. Wir schätzen es ehrlich ein.",
+      "cta": "Gespräch starten"
     }
   }
 }

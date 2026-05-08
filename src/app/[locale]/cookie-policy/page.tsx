@@ -7,7 +7,7 @@ import { cookiePolicyEn } from '@/content/legal/cookie-policy.en';
 export const metadata: Metadata = {
   title: 'Cookie Policy | Ignis Web Studio',
   description: 'How Ignis Web Studio uses cookies and tracking technologies on our website.',
-  robots: 'noindex, follow',
+  robots: { index: false, follow: true },
 };
 
 export function generateStaticParams() {

@@ -4,7 +4,7 @@ import { routing } from '@/i18n/routing';
 const BASE_URL = 'https://www.ignis-mls.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = ['', '/privacy-policy', '/terms-of-service', '/cookie-policy', '/imprint'];
+  const routes = ['', '/services'];
 
   const entries: MetadataRoute.Sitemap = [];
 

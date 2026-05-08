@@ -32,6 +32,7 @@ export function generateStaticParams() {
 }
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.ignis-mls.com'),
   title: 'Ignis Studio — Web Development That Ignites',
   description:
     'Ignis crafts high-performance websites and web applications that ignite brands and accelerate growth. Landing pages, business websites, and web apps.',

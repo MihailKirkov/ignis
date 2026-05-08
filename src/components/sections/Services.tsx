@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react';
 import { useProjectModal, type ServiceKey } from '@/components/ui/ProjectModal';
 import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
 import gsap from 'gsap';
 import { ensureGsapPlugins } from '@/lib/gsap-setup';
 
@@ -82,6 +83,8 @@ interface CardProps {
   features: string[];
   cta: string;
   onCta: () => void;
+  detailsLabel: string;
+  detailsHref: string;
 }
 
 const ACCENT_GRADIENTS = [
@@ -96,7 +99,17 @@ const GLOW_COLORS = [
   'rgba(255,179,71,0.2)',
 ];
 
-function ServiceCard({ icon, accentIndex, title, description, features, cta, onCta }: CardProps) {
+function ServiceCard({
+  icon,
+  accentIndex,
+  title,
+  description,
+  features,
+  cta,
+  onCta,
+  detailsLabel,
+  detailsHref,
+}: CardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -234,6 +247,18 @@ function ServiceCard({ icon, accentIndex, title, description, features, cta, onC
         </svg>
       </button>
 
+      {/* Secondary details link */}
+      <Link
+        href={detailsHref}
+        className="mt-3 inline-flex items-center gap-1.5 text-xs font-medium text-text-muted hover:text-text-secondary transition-colors duration-200"
+        style={{ transform: 'translateZ(14px)' }}
+      >
+        <span>{detailsLabel}</span>
+        <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </Link>
+
       {/* Vanilla Tilt glare element (appended by the lib) sits inside here automatically */}
     </div>
   );
@@ -336,6 +361,8 @@ export default function Services() {
         t('landing.feature4'),
       ],
       cta: t('landing.cta'),
+      detailsLabel: t('landing.details'),
+      detailsHref: '/services#landing-page',
     },
     {
       icon: <IconBusiness />,
@@ -349,6 +376,8 @@ export default function Services() {
         t('business.feature4'),
       ],
       cta: t('business.cta'),
+      detailsLabel: t('business.details'),
+      detailsHref: '/services#business-website',
     },
     {
       icon: <IconWebApp />,
@@ -362,6 +391,8 @@ export default function Services() {
         t('webapp.feature4'),
       ],
       cta: t('webapp.cta'),
+      detailsLabel: t('webapp.details'),
+      detailsHref: '/services#web-app',
     },
   ];
 
