@@ -362,7 +362,7 @@
       "items": [
         { "name": "Domain-Registrierung", "detail": "Wir registrieren und konfigurieren Ihre Domain. Sie behalten das Eigentum." },
         { "name": "Hosting-Setup", "detail": "Bereitgestellt auf Vercel. Schnell, skalierbar, kein Servermanagement." },
-        { "name": "Monatliche Wartung", "detail": "Updates, Fixes, Monitoring. Ab €79/Monat." },
+        { "name": "Monatliche Wartung", "detail": "Updates, Fixes, Monitoring." },
         { "name": "Analytics-Setup", "detail": "Datenschutzfreundliche Analysen. Kein Cookie-Banner erforderlich." }
       ]
     },

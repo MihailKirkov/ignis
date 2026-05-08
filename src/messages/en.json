@@ -362,7 +362,7 @@
       "items": [
         { "name": "Domain registration", "detail": "We register and configure your domain. You own it." },
         { "name": "Hosting setup", "detail": "Deployed on Vercel. Fast, scalable, zero server management." },
-        { "name": "Monthly maintenance", "detail": "Updates, fixes, monitoring. From €79/mo." },
+        { "name": "Monthly maintenance", "detail": "Updates, fixes, monitoring." },
         { "name": "Analytics setup", "detail": "Privacy-friendly analytics. No cookie banner required." }
       ]
     },
