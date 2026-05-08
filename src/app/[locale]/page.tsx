@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
+import { routing } from '@/i18n/routing';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/sections/Hero';
 import { HomeSections } from '@/components/sections/HomeSections';
@@ -22,7 +23,6 @@ export async function generateMetadata({
     authors: [{ name: 'Ignis Web Studio' }],
     creator: 'Ignis Web Studio',
     publisher: 'Ignis Web Studio',
-    metadataBase: new URL('https://www.ignis-mls.com'),
     alternates: {
       canonical: `/${locale}`,
       languages: {
@@ -65,6 +65,10 @@ export async function generateMetadata({
       },
     },
   };
+}
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
 }
 
 export default async function HomePage({

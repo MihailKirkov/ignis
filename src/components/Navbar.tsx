@@ -11,13 +11,17 @@ const LOCALES = [
   { code: 'de', label: 'DE', full: 'Deutsch' },
 ];
 
-const NAV_LINKS = [
-  { key: 'services', href: '#services' },
-  { key: 'work', href: '#work' },
-  { key: 'process', href: '#process' },
-  { key: 'pricing', href: '#pricing' },
-  { key: 'contact', href: '#contact' },
-] as const;
+type NavLink =
+  | { key: string; href: string; type: 'anchor' }
+  | { key: string; href: string; type: 'route' };
+
+const NAV_LINKS: ReadonlyArray<NavLink> = [
+  { key: 'services', href: '/services', type: 'route' },
+  { key: 'work', href: '#work', type: 'anchor' },
+  { key: 'process', href: '#process', type: 'anchor' },
+  { key: 'pricing', href: '#pricing', type: 'anchor' },
+  { key: 'contact', href: '#contact', type: 'anchor' },
+];
 
 export default function Navbar() {
   const t = useTranslations('nav');
@@ -112,16 +116,27 @@ export default function Navbar() {
 
             {/* Desktop Nav Links */}
             <div className="hidden lg:flex items-center gap-5 xl:gap-8">
-              {NAV_LINKS.map(({ key, href }) => (
-                <button
-                  key={key}
-                  onClick={() => handleNavClick(href)}
-                  className="text-sm font-medium text-text-secondary hover:text-text transition-colors duration-200 relative group cursor-pointer"
-                >
-                  {t(key)}
-                  <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-ignis transition-all duration-300 group-hover:w-full" />
-                </button>
-              ))}
+              {NAV_LINKS.map((link) =>
+                link.type === 'route' ? (
+                  <Link
+                    key={link.key}
+                    href={link.href}
+                    className="text-sm font-medium text-text-secondary hover:text-text transition-colors duration-200 relative group cursor-pointer"
+                  >
+                    {t(link.key)}
+                    <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-ignis transition-all duration-300 group-hover:w-full" />
+                  </Link>
+                ) : (
+                  <button
+                    key={link.key}
+                    onClick={() => handleNavClick(link.href)}
+                    className="text-sm font-medium text-text-secondary hover:text-text transition-colors duration-200 relative group cursor-pointer"
+                  >
+                    {t(link.key)}
+                    <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-ignis transition-all duration-300 group-hover:w-full" />
+                  </button>
+                )
+              )}
             </div>
 
             {/* Desktop Right */}
@@ -216,21 +231,36 @@ export default function Navbar() {
         <div className="absolute inset-0 bg-bg/95 backdrop-blur-2xl" onClick={() => setMenuOpen(false)} />
         <div className="relative z-10 flex flex-col h-full pt-24 px-8">
           <nav className="flex flex-col gap-2">
-            {NAV_LINKS.map(({ key, href }, i) => (
-              <button
-                key={key}
-                onClick={() => handleNavClick(href)}
-                className="text-left text-4xl font-display font-bold text-text-secondary hover:text-text transition-all duration-200 py-3 border-b border-border cursor-pointer"
-                style={{
-                  transitionDelay: menuOpen ? `${i * 60}ms` : '0ms',
-                  transform: menuOpen ? 'translateX(0)' : 'translateX(-20px)',
-                  opacity: menuOpen ? 1 : 0,
-                  transition: `transform 0.4s ease ${i * 60}ms, opacity 0.4s ease ${i * 60}ms, color 0.2s ease`,
-                }}
-              >
-                {t(key)}
-              </button>
-            ))}
+            {NAV_LINKS.map((link, i) => {
+              const style: React.CSSProperties = {
+                transitionDelay: menuOpen ? `${i * 60}ms` : '0ms',
+                transform: menuOpen ? 'translateX(0)' : 'translateX(-20px)',
+                opacity: menuOpen ? 1 : 0,
+                transition: `transform 0.4s ease ${i * 60}ms, opacity 0.4s ease ${i * 60}ms, color 0.2s ease`,
+              };
+              const cls =
+                'text-left text-4xl font-display font-bold text-text-secondary hover:text-text transition-all duration-200 py-3 border-b border-border cursor-pointer';
+              return link.type === 'route' ? (
+                <Link
+                  key={link.key}
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  className={cls}
+                  style={style}
+                >
+                  {t(link.key)}
+                </Link>
+              ) : (
+                <button
+                  key={link.key}
+                  onClick={() => handleNavClick(link.href)}
+                  className={cls}
+                  style={style}
+                >
+                  {t(link.key)}
+                </button>
+              );
+            })}
           </nav>
 
           <div className="mt-auto pb-12 flex flex-col gap-4">

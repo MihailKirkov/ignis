@@ -7,7 +7,7 @@ import { privacyPolicyEn } from '@/content/legal/privacy-policy.en';
 export const metadata: Metadata = {
   title: 'Privacy Policy | Ignis Web Studio',
   description: 'How Ignis Web Studio collects, uses, and protects your personal information.',
-  robots: 'noindex, follow',
+  robots: { index: false, follow: true },
 };
 
 export function generateStaticParams() {

@@ -29,7 +29,8 @@
       "feature2": "Sub-2s load time",
       "feature3": "A/B testing ready",
       "feature4": "Analytics integrated",
-      "cta": "Get a Landing Page"
+      "cta": "Get a Landing Page",
+      "details": "See full details"
     },
     "business": {
       "title": "Business Websites",
@@ -38,7 +39,8 @@
       "feature2": "SEO architecture",
       "feature3": "Multi-language support",
       "feature4": "Performance-first build",
-      "cta": "Get a Business Site"
+      "cta": "Get a Business Site",
+      "details": "See full details"
     },
     "webapp": {
       "title": "Web Applications",
@@ -47,7 +49,8 @@
       "feature2": "Authentication & Auth",
       "feature3": "Real-time features",
       "feature4": "API integration",
-      "cta": "Build My App"
+      "cta": "Build My App",
+      "details": "See full details"
     }
   },
   "work": {
@@ -284,6 +287,89 @@
     "consent": {
       "agreement": "I have read and agree to the <link>Privacy Policy</link>.",
       "errorRequired": "You must agree to the Privacy Policy to submit this form."
+    }
+  },
+  "servicesPage": {
+    "meta": {
+      "title": "Web Development Services | Ignis-MLS",
+      "description": "Landing pages, business websites and web apps built with Next.js. Fast delivery, custom design, SEO included."
+    },
+    "hero": {
+      "badge": "What we build",
+      "heading": "Services & Pricing",
+      "subheading": "Three packages. Fixed scope. No surprises."
+    },
+    "landing": {
+      "badge": "Landing Page",
+      "headline": "Your business, online in 5 days.",
+      "description": "A focused, high-converting single page built to turn visitors into leads. No bloat, no templates — designed and developed from scratch for your business.",
+      "price": "€490 – €690",
+      "timeline": "5–7 days",
+      "included": "What's included",
+      "features": [
+        "Custom design — no templates",
+        "Mobile-first, fully responsive",
+        "SEO-ready — meta, Open Graph, sitemap, schema",
+        "Contact form with email delivery",
+        "Performance optimised (Lighthouse ≥ 90)",
+        "GDPR-compliant — cookie consent + privacy page",
+        "2 rounds of revision",
+        "Handoff with content update walkthrough"
+      ],
+      "cta": "Start a project"
+    },
+    "business": {
+      "badge": "Business Website",
+      "headline": "A website that works as hard as you do.",
+      "description": "Multi-page website for businesses that need more than a landing page — services, about, portfolio, contact. Built for credibility, search visibility, and long-term growth.",
+      "price": "€997 – €1,499",
+      "timeline": "1–2 weeks",
+      "included": "What's included",
+      "features": [
+        "Everything in Landing Page",
+        "Up to 6 pages — Home, About, Services, Portfolio, Contact",
+        "Multi-language support",
+        "Blog / news section (optional)",
+        "Google-indexed, hreflang configured",
+        "JSON-LD structured data",
+        "Advanced contact forms",
+        "3 rounds of revision"
+      ],
+      "cta": "Start a project"
+    },
+    "webapp": {
+      "badge": "Web App",
+      "headline": "Custom software, built for your workflow.",
+      "description": "When off-the-shelf tools don't cut it. We scope, design, and build web applications tailored to your process — dashboards, booking systems, client portals, internal tools.",
+      "price": "Custom — scoped per project",
+      "timeline": "Scoped per project",
+      "included": "What's included",
+      "features": [
+        "Free requirements scoping session",
+        "Custom UI/UX design",
+        "Full-stack — Next.js + Supabase",
+        "Authentication & user management",
+        "Database design and API layer",
+        "Deployment, CI and environment setup",
+        "Documentation and handoff",
+        "Post-launch support window"
+      ],
+      "cta": "Discuss your project"
+    },
+    "addons": {
+      "badge": "Optional extras",
+      "heading": "Add what you need. Skip what you don't.",
+      "items": [
+        { "name": "Domain registration", "detail": "We register and configure your domain. You own it." },
+        { "name": "Hosting setup", "detail": "Deployed on Vercel. Fast, scalable, zero server management." },
+        { "name": "Monthly maintenance", "detail": "Updates, fixes, monitoring. From €79/mo." },
+        { "name": "Analytics setup", "detail": "Privacy-friendly analytics. No cookie banner required." }
+      ]
+    },
+    "finalCta": {
+      "heading": "Not sure which fits?",
+      "sub": "Tell us what you're building. We'll scope it honestly.",
+      "cta": "Let's talk"
     }
   }
 }
