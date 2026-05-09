@@ -1,0 +1,71 @@
+import type { Project } from './types';
+
+export const PROJECTS: Project[] = [
+  {
+    id: 'kaboom-bg',
+    titleKey: 'projects.kaboom-bg.title',
+    descriptionKey: 'projects.kaboom-bg.description',
+    category: 'landing',
+    accent: '#ed3a3a',
+    thumbnail: '/images/work/kaboom-bg/thumb.webp',
+    caseStudy: {
+      hero: '/images/work/kaboom-bg/hero.png',
+      gallery: [
+        '/images/work/kaboom-bg/gallery-1.webp',
+        '/images/work/kaboom-bg/gallery-2.webp',
+        '/images/work/kaboom-bg/gallery-3.webp',
+      ],
+      challengeKey: 'projects.kaboom-bg.challenge',
+      solutionKey: 'projects.kaboom-bg.solution',
+      resultsKeys: [],
+      stack: ['Next.js', 'Tailwind', 'GSAP'],
+      liveUrl: 'https://kaboom.bg',
+      durationKey: 'projects.kaboom-bg.duration',
+      roleKey: 'projects.kaboom-bg.role',
+    },
+  },
+  {
+    id: 'lead-hq',
+    titleKey: 'projects.lead-hq.title',
+    descriptionKey: 'projects.lead-hq.description',
+    category: 'webapp',
+    accent: '#ff6b35',
+    thumbnail: '/images/work/lead-hq/thumb.webp',
+    caseStudy: {
+      hero: '/images/work/lead-hq/hero.webp',
+      gallery: [
+        '/images/work/lead-hq/lead-hq-leads-table.webp',
+        '/images/work/lead-hq/lead-hq-scraper.webp',
+      ],
+      challengeKey: 'projects.lead-hq.challenge',
+      solutionKey: 'projects.lead-hq.solution',
+      resultsKeys: [],
+      stack: ['Next.js', 'Supabase', 'Python', 'OpenAI'],
+      durationKey: 'projects.lead-hq.duration',
+      roleKey: 'projects.lead-hq.role',
+    },
+  },
+  {
+    id: 'the-sharp-cut',
+    titleKey: 'projects.the-sharp-cut.title',
+    descriptionKey: 'projects.the-sharp-cut.description',
+    category: 'business',
+    accent: '#d4a853',
+    thumbnail: '/images/work/the-sharp-cut/thumb.webp',
+    concept: true,
+    caseStudy: {
+      hero: '/images/work/the-sharp-cut/hero.webp',
+      gallery: [
+        '/images/work/the-sharp-cut/gallery-1.webp',
+        '/images/work/the-sharp-cut/gallery-2.webp',
+      ],
+      challengeKey: 'projects.the-sharp-cut.challenge',
+      solutionKey: 'projects.the-sharp-cut.solution',
+      resultsKeys: [],
+      stack: ['Next.js', 'Tailwind'],
+      durationKey: 'projects.the-sharp-cut.duration',
+      roleKey: 'projects.the-sharp-cut.role',
+      liveUrl: 'https://the-sharp-cut.vercel.app/',
+    },
+  },
+];

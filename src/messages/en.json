@@ -62,6 +62,7 @@
     "filterBusiness": "Business Websites",
     "filterApp": "Web Apps",
     "viewProject": "View Project",
+    "conceptLabel": "Concept",
     "modal": {
       "challenge": "Challenge",
       "solution": "Solution",
@@ -371,5 +372,22 @@
       "sub": "Tell us what you're building. We'll scope it honestly.",
       "cta": "Let's talk"
     }
+  },
+  "workPage": {
+    "meta": {
+      "title": "Our Work | Ignis-MLS",
+      "description": "Projects we've built — landing pages, business websites, and web apps. Real work, real results."
+    },
+    "hero": {
+      "badge": "Our work",
+      "heading": "What we've built",
+      "subheading": "A small portfolio of real projects. Every one built from scratch — no templates, no shortcuts."
+    },
+    "conceptLabel": "Concept",
+    "viewLive": "View live site",
+    "viewProject": "View case study",
+    "stack": "Stack",
+    "duration": "Timeline",
+    "role": "Role"
   }
 }

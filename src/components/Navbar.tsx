@@ -18,7 +18,7 @@ type NavLink =
 
 const NAV_LINKS: ReadonlyArray<NavLink> = [
     { key: "services", href: "/services", type: "route" },
-    { key: "work", href: "#work", type: "anchor" },
+    { key: "work", href: "/work", type: "route" },
     { key: "process", href: "#process", type: "anchor" },
     { key: "pricing", href: "#pricing", type: "anchor" },
     { key: "contact", href: "#contact", type: "anchor" },
