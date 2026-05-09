@@ -1,7 +1,7 @@
 {
   "nav": {
     "services": "Leistungen",
-    "work": "Projekte",
+    "work": "Arbeit",
     "process": "Prozess",
     "pricing": "Preise",
     "contact": "Kontakt",
@@ -62,6 +62,7 @@
     "filterBusiness": "Unternehmenswebseiten",
     "filterApp": "Webanwendungen",
     "viewProject": "Projekt Ansehen",
+    "conceptLabel": "Konzept",
     "modal": {
       "challenge": "Herausforderung",
       "solution": "Lösung",
@@ -362,7 +363,7 @@
       "items": [
         { "name": "Domain-Registrierung", "detail": "Wir registrieren und konfigurieren Ihre Domain. Sie behalten das Eigentum." },
         { "name": "Hosting-Setup", "detail": "Bereitgestellt auf Vercel. Schnell, skalierbar, kein Servermanagement." },
-        { "name": "Monatliche Wartung", "detail": "Updates, Fixes, Monitoring. Ab €79/Monat." },
+        { "name": "Monatliche Wartung", "detail": "Updates, Fixes, Monitoring." },
         { "name": "Analytics-Setup", "detail": "Datenschutzfreundliche Analysen. Kein Cookie-Banner erforderlich." }
       ]
     },
@@ -371,5 +372,22 @@
       "sub": "Sagen Sie uns, was Sie bauen. Wir schätzen es ehrlich ein.",
       "cta": "Gespräch starten"
     }
+  },
+  "workPage": {
+    "meta": {
+      "title": "Unsere Arbeit | Ignis-MLS",
+      "description": "Projekte, die wir gebaut haben — Landing Pages, Business-Websites und Web-Apps. Echte Arbeit, echte Ergebnisse."
+    },
+    "hero": {
+      "badge": "Unsere Arbeit",
+      "heading": "Was wir gebaut haben",
+      "subheading": "Ein kleines Portfolio echter Projekte. Jedes von Grund auf gebaut — keine Templates, keine Abkürzungen."
+    },
+    "conceptLabel": "Konzept",
+    "viewLive": "Live-Site ansehen",
+    "viewProject": "Case Study ansehen",
+    "stack": "Stack",
+    "duration": "Zeitrahmen",
+    "role": "Rolle"
   }
 }

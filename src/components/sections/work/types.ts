@@ -21,4 +21,5 @@ export interface Project {
   thumbnail: string;
   projectUrl?: string;
   caseStudy?: CaseStudy;
+  concept?: boolean;
 }

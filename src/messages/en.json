@@ -62,6 +62,7 @@
     "filterBusiness": "Business Websites",
     "filterApp": "Web Apps",
     "viewProject": "View Project",
+    "conceptLabel": "Concept",
     "modal": {
       "challenge": "Challenge",
       "solution": "Solution",
@@ -362,7 +363,7 @@
       "items": [
         { "name": "Domain registration", "detail": "We register and configure your domain. You own it." },
         { "name": "Hosting setup", "detail": "Deployed on Vercel. Fast, scalable, zero server management." },
-        { "name": "Monthly maintenance", "detail": "Updates, fixes, monitoring. From €79/mo." },
+        { "name": "Monthly maintenance", "detail": "Updates, fixes, monitoring." },
         { "name": "Analytics setup", "detail": "Privacy-friendly analytics. No cookie banner required." }
       ]
     },
@@ -371,5 +372,22 @@
       "sub": "Tell us what you're building. We'll scope it honestly.",
       "cta": "Let's talk"
     }
+  },
+  "workPage": {
+    "meta": {
+      "title": "Our Work | Ignis-MLS",
+      "description": "Projects we've built — landing pages, business websites, and web apps. Real work, real results."
+    },
+    "hero": {
+      "badge": "Our work",
+      "heading": "What we've built",
+      "subheading": "A small portfolio of real projects. Every one built from scratch — no templates, no shortcuts."
+    },
+    "conceptLabel": "Concept",
+    "viewLive": "View live site",
+    "viewProject": "View case study",
+    "stack": "Stack",
+    "duration": "Timeline",
+    "role": "Role"
   }
 }
