@@ -14,7 +14,8 @@
       "PowerShell(npm install *)",
       "PowerShell(npm run *)",
       "Bash(npx next *)",
-      "PowerShell($env:ANALYZE='true'; npx next build --webpack 2>&1 | Select-Object -Last 100)"
+      "PowerShell($env:ANALYZE='true'; npx next build --webpack 2>&1 | Select-Object -Last 100)",
+      "Bash(npm --version)"
     ]
   }
 }

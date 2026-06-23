@@ -17,24 +17,24 @@ export function FilterTabs({ active, filters, onChange }: FilterTabsProps) {
           style={
             active === key
               ? {
-                  background: 'linear-gradient(135deg, #ff6b2c 0%, #ffb347 100%)',
+                  background: 'linear-gradient(135deg, var(--color-ignis) 0%, var(--color-ignis-glow) 100%)',
                   color: '#fff',
                   border: '1px solid transparent',
                   boxShadow: '0 2px 16px rgba(255,107,44,0.3)',
                 }
               : {
                   background: 'transparent',
-                  color: '#8e8ea8',
-                  border: '1px solid #1e1e2e',
+                  color: 'var(--color-text-secondary)',
+                  border: '1px solid var(--color-border)',
                 }
           }
           onMouseEnter={(e) => {
             if (active !== key)
-              (e.currentTarget as HTMLButtonElement).style.color = '#f0f0ee';
+              (e.currentTarget as HTMLButtonElement).style.color = 'var(--color-text)';
           }}
           onMouseLeave={(e) => {
             if (active !== key)
-              (e.currentTarget as HTMLButtonElement).style.color = '#8e8ea8';
+              (e.currentTarget as HTMLButtonElement).style.color = 'var(--color-text-secondary)';
           }}
         >
           {label}

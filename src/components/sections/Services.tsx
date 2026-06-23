@@ -5,7 +5,7 @@ import { useProjectModal, type ServiceKey } from '@/components/ui/ProjectModal';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import gsap from 'gsap';
-import { ensureGsapPlugins } from '@/lib/gsap-setup';
+import { ensureGsapPlugins, prefersReducedMotion } from '@/lib/gsap-setup';
 
 /* ─────────────────────────────── Icons ─────────────────────────────── */
 
@@ -88,9 +88,9 @@ interface CardProps {
 }
 
 const ACCENT_GRADIENTS = [
-  'from-[#ff3d00] to-[#ff6b2c]',
-  'from-[#ff6b2c] to-[#ffb347]',
-  'from-[#ffb347] to-[#ffd700]',
+  'from-[var(--color-ignis-red)] to-[var(--color-ignis)]',
+  'from-[var(--color-ignis)] to-[var(--color-ignis-glow)]',
+  'from-[var(--color-ignis-glow)] to-[#ffd700]',
 ];
 
 const GLOW_COLORS = [
@@ -115,6 +115,7 @@ function ServiceCard({
   useEffect(() => {
     const el = cardRef.current;
     if (!el) return;
+    if (prefersReducedMotion()) return;
     let mounted = true;
 
     (async () => {
@@ -146,7 +147,7 @@ function ServiceCard({
       className="service-card group relative flex flex-col rounded-2xl p-8 cursor-default overflow-hidden"
       style={{
         background: 'linear-gradient(145deg, #0f0f1a 0%, #12121e 60%, #0d0d16 100%)',
-        border: '1px solid #1e1e2e',
+        border: '1px solid var(--color-border)',
         boxShadow: '0 4px 30px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.04)',
         transformStyle: 'preserve-3d',
         willChange: 'transform',
@@ -178,7 +179,7 @@ function ServiceCard({
             {/* Render icon with ember color */}
             <div
               className="w-full h-full"
-              style={{ color: accentIndex === 0 ? '#ff6b2c' : accentIndex === 1 ? '#ff8c42' : '#ffb347' }}
+              style={{ color: accentIndex === 0 ? 'var(--color-ignis)' : accentIndex === 1 ? '#ff8c42' : 'var(--color-ignis-glow)' }}
             >
               {icon}
             </div>
@@ -230,7 +231,7 @@ function ServiceCard({
         className="group/btn mt-auto flex items-center gap-2 text-sm font-semibold cursor-pointer"
         style={{
           transform: 'translateZ(18px)',
-          color: accentIndex === 0 ? '#ff6b2c' : accentIndex === 1 ? '#ff8c42' : '#ffb347',
+          color: accentIndex === 0 ? 'var(--color-ignis)' : accentIndex === 1 ? '#ff8c42' : 'var(--color-ignis-glow)',
         }}
       >
         <span className="transition-all duration-300 group-hover/btn:underline underline-offset-4 decoration-from-font">
@@ -275,6 +276,7 @@ export default function Services() {
 
   useEffect(() => {
     ensureGsapPlugins();
+    if (prefersReducedMotion()) return;
     const ctx = gsap.context(() => {
       /* Heading reveal */
       gsap.fromTo(

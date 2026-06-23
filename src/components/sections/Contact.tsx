@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import { useProjectModal } from '@/components/ui/ProjectModal';
 import gsap from 'gsap';
-import { ensureGsapPlugins } from '@/lib/gsap-setup';
+import { ensureGsapPlugins, prefersReducedMotion } from '@/lib/gsap-setup';
 
 /* ──────────────────────── Social icons ────────────────────────── */
 
@@ -45,6 +45,7 @@ export function Contact() {
 
   useEffect(() => {
     ensureGsapPlugins();
+    if (prefersReducedMotion()) return;
     const ctx = gsap.context(() => {
 
       /* Ambient orb pulses — looping, no ScrollTrigger */
@@ -77,7 +78,7 @@ export function Contact() {
       ref={sectionRef}
       id="contact"
       className="relative py-32 lg:py-44 overflow-hidden"
-      style={{ background: '#06060a' }}
+      style={{ background: 'var(--color-bg)' }}
     >
       {/* Animated ambient orbs */}
       <div
@@ -148,7 +149,7 @@ export function Contact() {
           style={{
             fontSize: 'clamp(2.8rem, 7vw, 5.5rem)',
             whiteSpace: 'pre-line',
-            background: 'linear-gradient(135deg, #f0f0ee 0%, #ff6b2c 45%, #ffb347 75%, #f0f0ee 100%)',
+            background: 'linear-gradient(135deg, var(--color-text) 0%, var(--color-ignis) 45%, var(--color-ignis-glow) 75%, var(--color-text) 100%)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text',
@@ -172,13 +173,13 @@ export function Contact() {
             onClick={() => openModal()}
             className="relative group inline-flex items-center gap-2.5 px-8 py-4 rounded-xl text-sm font-semibold text-white overflow-hidden cursor-pointer transition-transform duration-300 hover:scale-[1.03]"
             style={{
-              background: 'linear-gradient(135deg, #ff6b2c 0%, #ffb347 100%)',
+              background: 'linear-gradient(135deg, var(--color-ignis) 0%, var(--color-ignis-glow) 100%)',
               boxShadow: '0 4px 32px rgba(255,107,44,0.4)',
             }}
           >
             <span
               className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              style={{ background: 'linear-gradient(135deg, #ff8a50 0%, #ffcb47 100%)' }}
+              style={{ background: 'linear-gradient(135deg, var(--color-ignis-bright) 0%, var(--color-gold) 100%)' }}
             />
             <span className="relative z-10">{t('cta')}</span>
             <svg className="relative z-10 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
@@ -190,7 +191,7 @@ export function Contact() {
           <button
             onClick={() => window.open(process.env.NEXT_PUBLIC_CALENDLY_URL, '_blank')}
             className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-xl text-sm font-semibold text-text-secondary cursor-pointer transition-all duration-300 hover:text-text hover:border-ignis/50"
-            style={{ border: '1px solid #2a2a3e' }}
+            style={{ border: '1px solid var(--color-border-bright)' }}
           >
             <svg className="w-4 h-4 transition-colors duration-300 group-hover:text-ignis" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -225,7 +226,7 @@ export function Contact() {
               href={href}
               aria-label={label}
               className="flex items-center justify-center w-10 h-10 rounded-full text-text-muted hover:text-text transition-all duration-300 hover:scale-110"
-              style={{ border: '1px solid #1e1e2e', background: 'rgba(255,255,255,0.02)' }}
+              style={{ border: '1px solid var(--color-border)', background: 'rgba(255,255,255,0.02)' }}
             >
               {icon}
             </a>

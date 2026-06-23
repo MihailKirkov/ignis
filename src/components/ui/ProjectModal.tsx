@@ -11,6 +11,7 @@ import {
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import gsap from 'gsap';
+import { prefersReducedMotion } from '@/lib/gsap-setup';
 
 /* ─────────────────────────── Types ─────────────────────────────────── */
 
@@ -24,6 +25,7 @@ interface FormData {
   name:        string;
   email:       string;
   company:     string;
+  website:     string;
 }
 
 type SubmitState = 'idle' | 'submitting' | 'success' | 'error';
@@ -130,7 +132,7 @@ function StepIndicator({ current }: { current: number }) {
             {n < 3 && (
               <div
                 className="w-10 h-px mx-1 transition-colors duration-300"
-                style={{ background: done ? 'rgba(255,107,44,0.4)' : '#1e1e2e' }}
+                style={{ background: done ? 'rgba(255,107,44,0.4)' : 'var(--color-border)' }}
               />
             )}
           </div>
@@ -143,16 +145,16 @@ function StepIndicator({ current }: { current: number }) {
 /* ─────────────────────────── Input helpers ─────────────────────────── */
 
 const inputBase: React.CSSProperties = {
-  background: '#0d0d14',
-  border: '1px solid #1e1e2e',
+  background: 'var(--color-surface)',
+  border: '1px solid var(--color-border)',
   transition: 'border-color 0.2s',
 };
 
 function focusBorder(e: React.FocusEvent<HTMLElement>) {
-  (e.currentTarget as HTMLElement).style.borderColor = '#ff6b2c';
+  (e.currentTarget as HTMLElement).style.borderColor = 'var(--color-ignis)';
 }
 function blurBorder(e: React.FocusEvent<HTMLElement>) {
-  (e.currentTarget as HTMLElement).style.borderColor = '#1e1e2e';
+  (e.currentTarget as HTMLElement).style.borderColor = 'var(--color-border)';
 }
 
 /* ─────────────────────────── Modal (internal) ──────────────────────── */
@@ -180,7 +182,7 @@ function Modal({
 
   const [form, setForm] = useState<FormData>({
     service: '', description: '', budget: '', timeline: '',
-    name: '', email: '', company: '',
+    name: '', email: '', company: '', website: '',
   });
 
   /* Refs for GSAP */
@@ -196,7 +198,7 @@ function Modal({
     prevStepRef.current = start;
     setForm({
       service: initService, description: '', budget: '', timeline: '',
-      name: '', email: '', company: '',
+      name: '', email: '', company: '', website: '',
     });
     setSubmitState('idle');
     setValidationErr('');
@@ -212,6 +214,7 @@ function Modal({
     const overlay = overlayRef.current;
     const card    = cardRef.current;
     if (!overlay || !card) return;
+    if (prefersReducedMotion()) return;
     gsap.fromTo(overlay,
       { opacity: 0 },
       { opacity: 1, duration: 0.3, ease: 'power2.out' },
@@ -229,6 +232,7 @@ function Modal({
     const dir = step > prevStepRef.current ? 1 : -1;
     prevStepRef.current = step;
     if (!el) return;
+    if (prefersReducedMotion()) return;
     gsap.fromTo(el,
       { x: 36 * dir, opacity: 0 },
       { x: 0,        opacity: 1, duration: 0.24, ease: 'power2.out' },
@@ -253,7 +257,7 @@ function Modal({
   function handleClose() {
     const overlay = overlayRef.current;
     const card    = cardRef.current;
-    if (!overlay || !card) {
+    if (!overlay || !card || prefersReducedMotion()) {
       onClose(); setRendered(false); document.body.style.overflow = '';
       return;
     }
@@ -272,7 +276,7 @@ function Modal({
   function goTo(next: 1 | 2 | 3) {
     const el  = stepContentRef.current;
     const dir = next > step ? 1 : -1;
-    if (!el) { setStep(next); return; }
+    if (!el || prefersReducedMotion()) { setStep(next); return; }
     gsap.to(el, {
       x: -36 * dir, opacity: 0, duration: 0.18, ease: 'power2.in',
       onComplete: () => setStep(next),
@@ -322,6 +326,7 @@ function Modal({
           name:             form.name,
           email:            form.email,
           privacy_consent:  'I have read and agree to the Privacy Policy',
+          website:          form.website,
           ...(form.company ? { company: form.company } : {}),
         }),
       });
@@ -369,8 +374,8 @@ function Modal({
         ref={cardRef}
         className="relative w-full max-w-lg flex flex-col rounded-2xl overflow-hidden"
         style={{
-          background:  '#0d0d14',
-          border:      '1px solid #1e1e2e',
+          background:  'var(--color-surface)',
+          border:      '1px solid var(--color-border)',
           maxHeight:   '92vh',
           boxShadow:   '0 32px 80px rgba(0,0,0,0.75), 0 0 0 1px rgba(255,107,44,0.07)',
         }}
@@ -400,6 +405,21 @@ function Modal({
           )}
         </div>
 
+        {/* Honeypot — hidden from real users, bait for bots */}
+        <div aria-hidden="true" className="absolute -left-[9999px] top-0 h-0 w-0 overflow-hidden">
+          <label>
+            Website
+            <input
+              type="text"
+              name="website"
+              tabIndex={-1}
+              autoComplete="off"
+              value={form.website}
+              onChange={setField('website')}
+            />
+          </label>
+        </div>
+
         {/* ── Scrollable body ── */}
         <div className="flex-1 overflow-y-auto px-6">
           <div ref={stepContentRef}>
@@ -426,7 +446,7 @@ function Modal({
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-white"
-                  style={{ background: 'linear-gradient(135deg, #ff6b2c, #ffb347)' }}
+                  style={{ background: 'linear-gradient(135deg, var(--color-ignis), var(--color-ignis-glow))' }}
                 >
                   {t('bookCall')}
                   <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
@@ -450,21 +470,21 @@ function Modal({
                       }}
                       className="w-full text-left rounded-xl p-4 flex items-center gap-4 transition-all duration-200 cursor-pointer group"
                       style={{
-                        border:     `1px solid ${selected ? '#ff6b2c' : '#1e1e2e'}`,
+                        border:     `1px solid ${selected ? 'var(--color-ignis)' : 'var(--color-border)'}`,
                         background: selected ? 'rgba(255,107,44,0.07)' : 'transparent',
                       }}
                       onMouseEnter={(e) => {
-                        if (!selected) (e.currentTarget as HTMLElement).style.borderColor = '#2a2a3e';
+                        if (!selected) (e.currentTarget as HTMLElement).style.borderColor = 'var(--color-border-bright)';
                       }}
                       onMouseLeave={(e) => {
-                        if (!selected) (e.currentTarget as HTMLElement).style.borderColor = '#1e1e2e';
+                        if (!selected) (e.currentTarget as HTMLElement).style.borderColor = 'var(--color-border)';
                       }}
                     >
                       <div
                         className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-200"
                         style={{
                           background: selected ? 'rgba(255,107,44,0.15)' : 'rgba(255,255,255,0.04)',
-                          color:      selected ? '#ff6b2c' : '#4a4a62',
+                          color:      selected ? 'var(--color-ignis)' : 'var(--color-text-muted)',
                         }}
                       >
                         {icon}
@@ -482,7 +502,7 @@ function Modal({
                       </div>
                       <svg
                         className="w-4 h-4 flex-shrink-0 transition-transform duration-200 group-hover:translate-x-0.5"
-                        style={{ color: selected ? '#ff6b2c' : '#4a4a62' }}
+                        style={{ color: selected ? 'var(--color-ignis)' : 'var(--color-text-muted)' }}
                         fill="none" viewBox="0 0 16 16"
                       >
                         <path d="M6 4l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
@@ -635,7 +655,7 @@ function Modal({
               <div className="pb-6 pt-1">
                 <div
                   className="rounded-xl overflow-hidden"
-                  style={{ border: '1px solid #1e1e2e' }}
+                  style={{ border: '1px solid var(--color-border)' }}
                 >
                   {[
                     { label: t('rvService'),  value: SERVICE_LABELS[form.service]    },
@@ -651,7 +671,7 @@ function Modal({
                       className="flex gap-3 px-4 py-3"
                       style={{
                         background:  i % 2 === 0 ? 'rgba(255,255,255,0.02)' : 'transparent',
-                        borderBottom: i < arr.length - 1 ? '1px solid #1e1e2e' : 'none',
+                        borderBottom: i < arr.length - 1 ? '1px solid var(--color-border)' : 'none',
                       }}
                     >
                       <span className="text-[11px] font-semibold text-text-muted uppercase tracking-wider w-20 flex-shrink-0 pt-0.5">
@@ -675,7 +695,7 @@ function Modal({
                       if (e.target.checked) setConsentErr(false);
                     }}
                     className="mt-1 h-4 w-4 cursor-pointer flex-shrink-0"
-                    style={{ accentColor: '#ff6b2c' }}
+                    style={{ accentColor: 'var(--color-ignis)' }}
                   />
                   <label
                     htmlFor="privacy-consent"
@@ -713,16 +733,16 @@ function Modal({
         {/* ── Footer ── */}
         <div
           className="flex-shrink-0 px-6 py-4 flex items-center gap-3"
-          style={{ borderTop: '1px solid #1e1e2e' }}
+          style={{ borderTop: '1px solid var(--color-border)' }}
         >
           {/* Left button: back / close */}
           {!showSuccess && (
             <button
               onClick={step > 1 ? () => goTo((step - 1) as 1 | 2 | 3) : handleClose}
               className="px-5 py-2.5 rounded-xl text-sm font-medium text-text-secondary hover:text-text transition-all duration-200 cursor-pointer"
-              style={{ border: '1px solid #1e1e2e' }}
-              onMouseEnter={(e) => (e.currentTarget.style.borderColor = '#2a2a3e')}
-              onMouseLeave={(e) => (e.currentTarget.style.borderColor = '#1e1e2e')}
+              style={{ border: '1px solid var(--color-border)' }}
+              onMouseEnter={(e) => (e.currentTarget.style.borderColor = 'var(--color-border-bright)')}
+              onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'var(--color-border)')}
             >
               {step > 1 ? t('back') : t('close')}
             </button>
@@ -741,7 +761,7 @@ function Modal({
                 }
               }}
               className="px-5 py-2.5 rounded-xl text-sm font-semibold text-white transition-opacity duration-200 cursor-pointer hover:opacity-90"
-              style={{ background: 'linear-gradient(135deg, #ff6b2c, #ffb347)' }}
+              style={{ background: 'linear-gradient(135deg, var(--color-ignis), var(--color-ignis-glow))' }}
             >
               {t('next')}
             </button>
@@ -752,7 +772,7 @@ function Modal({
               onClick={handleSubmit}
               disabled={submitState === 'submitting' || !consent}
               className="px-5 py-2.5 rounded-xl text-sm font-semibold text-white transition-opacity duration-200 cursor-pointer hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
-              style={{ background: 'linear-gradient(135deg, #ff6b2c, #ffb347)' }}
+              style={{ background: 'linear-gradient(135deg, var(--color-ignis), var(--color-ignis-glow))' }}
             >
               {submitState === 'submitting' ? t('sending') : t('submit')}
             </button>
@@ -762,7 +782,7 @@ function Modal({
             <button
               onClick={handleClose}
               className="ml-auto px-5 py-2.5 rounded-xl text-sm font-medium text-text-secondary hover:text-text transition-all duration-200 cursor-pointer"
-              style={{ border: '1px solid #1e1e2e' }}
+              style={{ border: '1px solid var(--color-border)' }}
             >
               {t('close')}
             </button>

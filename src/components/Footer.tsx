@@ -26,7 +26,7 @@ export function Footer() {
   return (
     <footer
       className="relative border-t"
-      style={{ borderColor: 'rgba(255,107,44,0.1)', background: '#06060a' }}
+      style={{ borderColor: 'rgba(255,107,44,0.1)', background: 'var(--color-bg)' }}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-14">
         <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">

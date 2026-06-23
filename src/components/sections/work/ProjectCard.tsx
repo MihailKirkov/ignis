@@ -61,7 +61,7 @@ export function ProjectCard({ project, onOpen }: ProjectCardProps) {
             className="px-2.5 py-1 text-[10px] font-semibold tracking-widest uppercase rounded-full"
             style={{
               background: 'rgba(255,255,255,0.06)',
-              color: '#f0f0ee',
+              color: 'var(--color-text)',
               border: '1px solid rgba(255,255,255,0.18)',
             }}
           >

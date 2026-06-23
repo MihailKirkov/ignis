@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, useCallback, type KeyboardEvent } from 'react';
 import { useTranslations } from 'next-intl';
 import gsap from 'gsap';
-import { ensureGsapPlugins } from '@/lib/gsap-setup';
+import { ensureGsapPlugins, prefersReducedMotion } from '@/lib/gsap-setup';
 import { FaqJsonLd } from '@/components/seo/JsonLd';
 
 /* ─────────────────────────── Chevron icon ──────────────────────────── */
@@ -64,9 +64,9 @@ function AccordionItem({
       style={{
         border: isOpen
           ? '1px solid rgba(255, 107, 44, 0.35)'
-          : '1px solid #1e1e2e',
+          : '1px solid var(--color-border)',
         borderRadius: '0.75rem',
-        background: '#0d0d14',
+        background: 'var(--color-surface)',
         overflow: 'hidden',
         boxShadow: isOpen
           ? '0 0 24px rgba(255, 107, 44, 0.08), inset 0 0 0 1px rgba(255,107,44,0.12)'
@@ -76,12 +76,12 @@ function AccordionItem({
       }}
       onMouseEnter={(e) => {
         if (!isOpen) {
-          (e.currentTarget as HTMLDivElement).style.borderColor = '#2a2a3e';
+          (e.currentTarget as HTMLDivElement).style.borderColor = 'var(--color-border-bright)';
         }
       }}
       onMouseLeave={(e) => {
         if (!isOpen) {
-          (e.currentTarget as HTMLDivElement).style.borderColor = '#1e1e2e';
+          (e.currentTarget as HTMLDivElement).style.borderColor = 'var(--color-border)';
         }
       }}
     >
@@ -97,13 +97,13 @@ function AccordionItem({
       >
         <span
           className="font-display font-medium text-base lg:text-[1.0625rem] leading-snug"
-          style={{ color: isOpen ? '#f0f0ee' : '#d0d0cc' }}
+          style={{ color: isOpen ? 'var(--color-text)' : '#d0d0cc' }}
         >
           {item.question}
         </span>
         <span
           style={{
-            color: isOpen ? '#ff6b2c' : '#4a4a62',
+            color: isOpen ? 'var(--color-ignis)' : 'var(--color-text-muted)',
             transition: 'color 0.3s ease',
           }}
         >
@@ -157,6 +157,7 @@ export function FAQ() {
 
   useEffect(() => {
     ensureGsapPlugins();
+    if (prefersReducedMotion()) return;
     const ctx = gsap.context(() => {
       const headingTrigger = {
         trigger: headingRef.current,
@@ -285,13 +286,13 @@ export function FAQ() {
           <a
             href="#contact"
             className="inline-flex items-center gap-1.5 text-sm font-semibold transition-all duration-200"
-            style={{ color: '#ff6b2c' }}
+            style={{ color: 'var(--color-ignis)' }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.color = '#ff8a50';
+              (e.currentTarget as HTMLAnchorElement).style.color = 'var(--color-ignis-bright)';
               (e.currentTarget as HTMLAnchorElement).style.gap = '10px';
             }}
             onMouseLeave={(e) => {
-              (e.currentTarget as HTMLAnchorElement).style.color = '#ff6b2c';
+              (e.currentTarget as HTMLAnchorElement).style.color = 'var(--color-ignis)';
               (e.currentTarget as HTMLAnchorElement).style.gap = '6px';
             }}
           >

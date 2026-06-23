@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import gsap from 'gsap';
-import { ensureGsapPlugins } from '@/lib/gsap-setup';
+import { ensureGsapPlugins, prefersReducedMotion } from '@/lib/gsap-setup';
 import { useProjectModal, type ServiceKey } from '@/components/ui/ProjectModal';
 
 const PACKAGES: ReadonlyArray<{
@@ -18,15 +18,15 @@ const PACKAGES: ReadonlyArray<{
     id: 'landing-page',
     ns: 'landing',
     serviceKey: 'landing',
-    gradient: 'linear-gradient(90deg, #ff3d00, #ff6b2c)',
-    accent: '#ff6b2c',
+    gradient: 'linear-gradient(90deg, var(--color-ignis-red), var(--color-ignis))',
+    accent: 'var(--color-ignis)',
     glow: 'rgba(255,61,0,0.22)',
   },
   {
     id: 'business-website',
     ns: 'business',
     serviceKey: 'business',
-    gradient: 'linear-gradient(90deg, #ff6b2c, #ffb347)',
+    gradient: 'linear-gradient(90deg, var(--color-ignis), var(--color-ignis-glow))',
     accent: '#ff8c42',
     glow: 'rgba(255,107,44,0.22)',
   },
@@ -34,8 +34,8 @@ const PACKAGES: ReadonlyArray<{
     id: 'web-app',
     ns: 'webapp',
     serviceKey: 'webapp',
-    gradient: 'linear-gradient(90deg, #ffb347, #ffd700)',
-    accent: '#ffb347',
+    gradient: 'linear-gradient(90deg, var(--color-ignis-glow), #ffd700)',
+    accent: 'var(--color-ignis-glow)',
     glow: 'rgba(255,179,71,0.20)',
   },
 ];
@@ -70,11 +70,7 @@ export function ServicesPage() {
 
   useEffect(() => {
     ensureGsapPlugins();
-    const reduced =
-      typeof window !== 'undefined' &&
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (reduced) return;
+    if (prefersReducedMotion()) return;
 
     const ctx = gsap.context(() => {
       gsap.fromTo(
@@ -215,7 +211,7 @@ export function ServicesPage() {
               style={{
                 background:
                   'linear-gradient(145deg, #0f0f1a 0%, #12121e 60%, #0d0d16 100%)',
-                border: '1px solid #1e1e2e',
+                border: '1px solid var(--color-border)',
                 boxShadow:
                   '0 4px 30px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.04)',
               }}
@@ -281,7 +277,7 @@ export function ServicesPage() {
                     <span
                       className="px-3 py-1.5 rounded-full text-xs font-semibold text-text-secondary"
                       style={{
-                        border: '1px solid #1e1e2e',
+                        border: '1px solid var(--color-border)',
                         background: 'rgba(255,255,255,0.02)',
                       }}
                     >
@@ -361,7 +357,7 @@ export function ServicesPage() {
               className="addon-card relative rounded-2xl p-6 lg:p-7 transition-colors duration-300"
               style={{
                 background: 'linear-gradient(145deg, #0f0f1a 0%, #12121e 100%)',
-                border: '1px solid #1e1e2e',
+                border: '1px solid var(--color-border)',
                 boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.03)',
               }}
             >
@@ -389,7 +385,7 @@ export function ServicesPage() {
           <button
             onClick={() => openModal('landing')}
             className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-semibold text-white transition-opacity duration-200 cursor-pointer hover:opacity-90"
-            style={{ background: 'linear-gradient(135deg, #ff6b2c, #ffb347)' }}
+            style={{ background: 'linear-gradient(135deg, var(--color-ignis), var(--color-ignis-glow))' }}
           >
             {t('finalCta.cta')}
             <svg

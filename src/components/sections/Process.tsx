@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ensureGsapPlugins } from '@/lib/gsap-setup';
+import { ensureGsapPlugins, prefersReducedMotion } from '@/lib/gsap-setup';
 
 /* ──────────────────────────── Icons ──────────────────────────────── */
 
@@ -92,6 +92,32 @@ export function Process() {
 
   useEffect(() => {
     ensureGsapPlugins();
+
+    /* Reduced motion: skip scrubbed reveals, render the timeline as complete. */
+    if (prefersReducedMotion()) {
+      const ctx = gsap.context(() => {
+        gsap.set(vLineRef.current, { scaleY: 1, transformOrigin: 'top center' });
+        segLineRefs.current.forEach((el) => {
+          if (el) gsap.set(el, { scaleX: 1, transformOrigin: 'left center' });
+        });
+        desktopEls.current.forEach((step) => {
+          if (!step) return;
+          gsap.set(step.querySelector<HTMLElement>('[data-step-ring]'), ACTIVE.ring);
+          gsap.set(step.querySelector<HTMLElement>('[data-step-icon]'), ACTIVE.icon);
+          gsap.set(step.querySelector<HTMLElement>('[data-step-num]'), ACTIVE.num);
+          gsap.set(step.querySelector<HTMLElement>('[data-step-content]'), { opacity: 1, y: 0 });
+        });
+        mobileEls.current.forEach((step) => {
+          if (!step) return;
+          gsap.set(step.querySelector<HTMLElement>('[data-step-ring]'), { borderColor: '#ff6b2c', boxShadow: '0 0 24px rgba(255,107,44,0.3)' });
+          gsap.set(step.querySelector<HTMLElement>('[data-step-icon]'), ACTIVE.icon);
+          gsap.set(step.querySelector<HTMLElement>('[data-step-num]'), ACTIVE.num);
+          gsap.set(step.querySelector<HTMLElement>('[data-step-title]'), { color: '#f0f0ee' });
+        });
+      }, sectionRef);
+      return () => ctx.revert();
+    }
+
     const ctx = gsap.context(() => {
 
       /* ── Heading entrance ── */
@@ -228,7 +254,7 @@ export function Process() {
       ref={sectionRef}
       id="process"
       className="relative py-28 lg:py-36 overflow-hidden"
-      style={{ background: 'linear-gradient(180deg, #06060a 0%, #0a0a10 30%, #0d0d16 70%, #06060a 100%)' }}
+      style={{ background: 'linear-gradient(180deg, var(--color-bg) 0%, #0a0a10 30%, #0d0d16 70%, var(--color-bg) 100%)' }}
     >
       {/* Grid texture */}
       <div
@@ -287,7 +313,7 @@ export function Process() {
                 ref={vLineRef}
                 className="absolute inset-0"
                 style={{
-                  background: 'linear-gradient(180deg, #ff6b2c 0%, #ffb347 100%)',
+                  background: 'linear-gradient(180deg, var(--color-ignis) 0%, var(--color-ignis-glow) 100%)',
                   boxShadow: '0 0 8px rgba(255,107,44,0.5)',
                 }}
               />
@@ -374,7 +400,7 @@ export function Process() {
                 style={{
                   left:       `${(i / 3) * 100}%`,
                   width:      `${100 / 3}%`,
-                  background: 'linear-gradient(90deg, #ff6b2c, #ff8a50)',
+                  background: 'linear-gradient(90deg, var(--color-ignis), var(--color-ignis-bright))',
                   boxShadow:  '0 0 8px rgba(255,107,44,0.7)',
                 }}
               />

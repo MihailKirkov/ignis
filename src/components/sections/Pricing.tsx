@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import { useProjectModal, type ServiceKey } from '@/components/ui/ProjectModal';
 import gsap from 'gsap';
-import { ensureGsapPlugins } from '@/lib/gsap-setup';
+import { ensureGsapPlugins, prefersReducedMotion } from '@/lib/gsap-setup';
 
 /* ──────────────────────── Checkmark icon ──────────────────────── */
 
@@ -48,6 +48,7 @@ export function Pricing() {
 
   useEffect(() => {
     ensureGsapPlugins();
+    if (prefersReducedMotion()) return;
     const ctx = gsap.context(() => {
       const headingTrigger = { trigger: headingRef.current, start: 'top 86%', once: true };
 
@@ -178,10 +179,10 @@ function PricingCard({
         featured
           ? {
               border: '1px solid transparent',
-              background: 'linear-gradient(#13131d, #13131d) padding-box, linear-gradient(135deg, #ff6b2c 0%, #cc4700 50%, #ff6b2c88 100%) border-box',
+              background: 'linear-gradient(var(--color-surface-2), var(--color-surface-2)) padding-box, linear-gradient(135deg, var(--color-ignis) 0%, var(--color-ignis-dim) 50%, var(--color-ignis)88 100%) border-box',
               boxShadow: '0 0 80px rgba(255,107,44,0.12), 0 0 0 1px transparent',
             }
-          : { border: '1px solid #1e1e2e' }
+          : { border: '1px solid var(--color-border)' }
       }
     >
       {/* Most popular badge */}
@@ -190,7 +191,7 @@ function PricingCard({
           <span
             className="inline-flex items-center gap-1.5 px-3.5 py-1 text-[10px] font-bold tracking-[0.2em] uppercase rounded-full whitespace-nowrap"
             style={{
-              background: 'linear-gradient(135deg, #ff6b2c 0%, #ffb347 100%)',
+              background: 'linear-gradient(135deg, var(--color-ignis) 0%, var(--color-ignis-glow) 100%)',
               color: '#fff',
               boxShadow: '0 2px 16px rgba(255,107,44,0.45)',
             }}
@@ -274,14 +275,14 @@ function PricingCard({
           ].join(' ')}
           style={
             featured
-              ? { background: 'linear-gradient(135deg, #ff6b2c 0%, #ffb347 100%)', boxShadow: '0 4px 20px rgba(255,107,44,0.3)' }
+              ? { background: 'linear-gradient(135deg, var(--color-ignis) 0%, var(--color-ignis-glow) 100%)', boxShadow: '0 4px 20px rgba(255,107,44,0.3)' }
               : {}
           }
         >
           {featured && (
             <span
               className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-300"
-              style={{ background: 'linear-gradient(135deg, #ff8a50 0%, #ffcb47 100%)' }}
+              style={{ background: 'linear-gradient(135deg, var(--color-ignis-bright) 0%, var(--color-gold) 100%)' }}
             />
           )}
           <span className="relative z-10">

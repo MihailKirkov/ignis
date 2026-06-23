@@ -5,6 +5,7 @@ import { createPortal } from 'react-dom';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import gsap from 'gsap';
+import { prefersReducedMotion } from '@/lib/gsap-setup';
 import type { Project } from './types';
 
 interface ProjectModalProps {
@@ -50,6 +51,7 @@ export function ProjectModal({ project, onClose, triggerElement }: ProjectModalP
   /* ── Entrance animation ── */
   useEffect(() => {
     if (!project || !mounted) return;
+    if (prefersReducedMotion()) return;
     entranceTl.current = gsap.timeline()
       .fromTo(backdropRef.current, { opacity: 0 }, { opacity: 1, duration: 0.3, ease: 'power2.out' })
       .fromTo(
@@ -71,6 +73,11 @@ export function ProjectModal({ project, onClose, triggerElement }: ProjectModalP
   useEffect(() => {
     if (!isClosing) return;
     entranceTl.current?.kill();
+    if (prefersReducedMotion()) {
+      triggerElement?.focus();
+      onCloseRef.current();
+      return;
+    }
     gsap.timeline({
       onComplete: () => {
         triggerElement?.focus();

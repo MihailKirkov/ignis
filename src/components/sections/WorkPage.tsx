@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import gsap from 'gsap';
-import { ensureGsapPlugins } from '@/lib/gsap-setup';
+import { ensureGsapPlugins, prefersReducedMotion } from '@/lib/gsap-setup';
 import type { Project } from '@/components/sections/work/types';
 import { ProjectModal } from '@/components/sections/work/ProjectModal';
 import { PROJECTS } from '@/components/sections/work/projects';
@@ -44,7 +44,7 @@ function ProjectSlideshow({
       className={`relative w-full overflow-hidden rounded-2xl group ${className ?? ''}`}
       style={{
         aspectRatio: '16 / 10',
-        border: '1px solid #1e1e2e',
+        border: '1px solid var(--color-border)',
         boxShadow: '0 4px 30px rgba(0,0,0,0.5)',
       }}
     >
@@ -136,10 +136,7 @@ export function WorkPage() {
 
   useEffect(() => {
     ensureGsapPlugins();
-    const reduced =
-      typeof window !== 'undefined' &&
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduced) return;
+    if (prefersReducedMotion()) return;
 
     const ctx = gsap.context(() => {
       gsap.fromTo(
@@ -297,7 +294,7 @@ export function WorkPage() {
                           className="px-2.5 py-1 text-[10px] font-semibold tracking-widest uppercase rounded-full"
                           style={{
                             background: 'rgba(255,255,255,0.06)',
-                            color: '#f0f0ee',
+                            color: 'var(--color-text)',
                             border: '1px solid rgba(255,255,255,0.18)',
                           }}
                         >
@@ -324,7 +321,7 @@ export function WorkPage() {
                       <div
                         data-pkg-anim
                         className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-8 pb-8"
-                        style={{ borderBottom: '1px solid #1e1e2e' }}
+                        style={{ borderBottom: '1px solid var(--color-border)' }}
                       >
                         <div>
                           <div className="text-[10px] font-semibold tracking-[0.25em] uppercase text-text-muted mb-2">
@@ -338,7 +335,7 @@ export function WorkPage() {
                                 style={{
                                   background: 'rgba(255,255,255,0.04)',
                                   color: '#c8c8d6',
-                                  border: '1px solid #1e1e2e',
+                                  border: '1px solid var(--color-border)',
                                 }}
                               >
                                 {tech}
@@ -374,7 +371,7 @@ export function WorkPage() {
                         <button
                           onClick={() => window.open(liveUrl, '_blank', 'noopener,noreferrer')}
                           className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-white transition-opacity duration-200 cursor-pointer hover:opacity-90"
-                          style={{ background: 'linear-gradient(135deg, #ff6b2c, #ffb347)' }}
+                          style={{ background: 'linear-gradient(135deg, var(--color-ignis), var(--color-ignis-glow))' }}
                         >
                           {t('viewLive')}
                           <svg
@@ -403,11 +400,11 @@ export function WorkPage() {
                             liveUrl
                               ? {
                                   background: 'transparent',
-                                  color: '#f0f0ee',
+                                  color: 'var(--color-text)',
                                   border: '1px solid #2a2a3a',
                                 }
                               : {
-                                  background: 'linear-gradient(135deg, #ff6b2c, #ffb347)',
+                                  background: 'linear-gradient(135deg, var(--color-ignis), var(--color-ignis-glow))',
                                   color: '#fff',
                                   border: '1px solid transparent',
                                 }

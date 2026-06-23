@@ -245,7 +245,7 @@ export default function Navbar() {
                                     className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                                     style={{
                                         background:
-                                            "linear-gradient(135deg, #ff6b2c, #ffb347)",
+                                            "linear-gradient(135deg, var(--color-ignis), var(--color-ignis-glow))",
                                     }}
                                 />
                                 <span className="relative z-10">
@@ -355,7 +355,7 @@ export default function Navbar() {
                             className="w-full py-4 text-base font-semibold text-white rounded-xl cursor-pointer"
                             style={{
                                 background:
-                                    "linear-gradient(135deg, #ff6b2c, #ffb347)",
+                                    "linear-gradient(135deg, var(--color-ignis), var(--color-ignis-glow))",
                             }}
                         >
                             {t("startProject")}

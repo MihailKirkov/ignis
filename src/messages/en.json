@@ -226,6 +226,21 @@
     "email": "hello@ignis-mls.com",
     "bookCall": "Book a Free Call"
   },
+  "errors": {
+    "error": {
+      "label": "Error",
+      "title": "Something went sideways",
+      "description": "An unexpected error broke the flow. Try again — and if it keeps happening, reach out and we'll fix it fast.",
+      "retry": "Try again",
+      "home": "Back home"
+    },
+    "notFound": {
+      "code": "404",
+      "title": "This page went dark",
+      "description": "The page you're after doesn't exist or has moved. Let's get you back on track.",
+      "home": "Back home"
+    }
+  },
   "footer": {
     "tagline": "Crafting digital fire since 2020.",
     "copyright": "© 2025 Ignis Web Studio. All rights reserved.",

@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import gsap from 'gsap';
-import { ensureGsapPlugins } from '@/lib/gsap-setup';
+import { ensureGsapPlugins, prefersReducedMotion } from '@/lib/gsap-setup';
 
 interface LegalPageProps {
   content: string;
@@ -15,6 +15,7 @@ export function LegalPage({ content }: LegalPageProps) {
 
   useEffect(() => {
     ensureGsapPlugins();
+    if (prefersReducedMotion()) return;
     const ctx = gsap.context(() => {
       gsap.from(containerRef.current, {
         opacity: 0,

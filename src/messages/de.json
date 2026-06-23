@@ -226,6 +226,21 @@
     "email": "hello@ignis-mls.com",
     "bookCall": "Kostenloses Gespräch Buchen"
   },
+  "errors": {
+    "error": {
+      "label": "Fehler",
+      "title": "Da ist etwas schiefgelaufen",
+      "description": "Ein unerwarteter Fehler hat den Ablauf unterbrochen. Versuchen Sie es erneut — und falls es weiterhin auftritt, melden Sie sich und wir beheben es schnell.",
+      "retry": "Erneut versuchen",
+      "home": "Zur Startseite"
+    },
+    "notFound": {
+      "code": "404",
+      "title": "Diese Seite ist erloschen",
+      "description": "Die gesuchte Seite existiert nicht oder wurde verschoben. Wir bringen Sie zurück auf den richtigen Weg.",
+      "home": "Zur Startseite"
+    }
+  },
   "footer": {
     "tagline": "Digitales Feuer entfachen seit 2020.",
     "copyright": "© 2025 Ignis Web Studio. Alle Rechte vorbehalten.",

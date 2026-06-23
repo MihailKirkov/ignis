@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import gsap from 'gsap';
-import { ensureGsapPlugins } from '@/lib/gsap-setup';
+import { ensureGsapPlugins, prefersReducedMotion } from '@/lib/gsap-setup';
 import type { Project } from './work/types';
 import { ProjectModal } from './work/ProjectModal';
 import { ProjectCard } from './work/ProjectCard';
@@ -31,6 +31,7 @@ export default function Work() {
 
   useEffect(() => {
     ensureGsapPlugins();
+    if (prefersReducedMotion()) return;
     const ctx = gsap.context(() => {
       const headingTrigger = { trigger: headingRef.current, start: 'top 86%', once: true };
       const gridTrigger = { trigger: gridRef.current, start: 'top 84%', once: true };

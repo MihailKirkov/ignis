@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import { useProjectModal } from '@/components/ui/ProjectModal';
 import gsap from 'gsap';
-import { ensureGsapPlugins } from '@/lib/gsap-setup';
+import { ensureGsapPlugins, prefersReducedMotion } from '@/lib/gsap-setup';
 
 const TECH_STACK = [
   {
@@ -121,6 +121,7 @@ export function Hero() {
     ensureGsapPlugins();
     const content = contentRef.current;
     if (!content) return;
+    if (prefersReducedMotion()) return;
 
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ delay: 0.2 });
@@ -225,7 +226,7 @@ export function Hero() {
               >
                 <span
                   className="absolute inset-0 transition-all duration-300"
-                  style={{ background: 'linear-gradient(135deg, #ff6b2c, #ffb347)' }}
+                  style={{ background: 'linear-gradient(135deg, var(--color-ignis), var(--color-ignis-glow))' }}
                 />
                 <span
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"

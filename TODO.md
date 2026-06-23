@@ -39,10 +39,10 @@ Sourced from `CODEBASE_AUDIT.md` (snapshot 2026-05-01). See
 
 ### Must fix before using as client template
 
-- [ ] Add `error.tsx`, `not-found.tsx`, `loading.tsx` at locale level
-- [ ] Add `prefers-reduced-motion` handling to all GSAP setups
-- [ ] Add rate limit + honeypot + Zod validation to `/api/contact`
-- [ ] Replace inline hex colors with CSS variables (sweep)
+- [x] Add `error.tsx`, `not-found.tsx`, `loading.tsx` at locale level
+- [x] Add `prefers-reduced-motion` handling to all GSAP setups
+- [x] Add rate limit + honeypot + Zod validation to `/api/contact`
+- [x] Replace inline hex colors with CSS variables (sweep)
 - [ ] Add Prettier config + `.editorconfig`
 - [ ] Pin Node version (`.nvmrc` + `engines` field)
 - [ ] Centralize hreflang map — derive from `routing.locales` (page metadata + OG locale ternary + proxy matcher)
